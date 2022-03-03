@@ -18,11 +18,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //void FixedUpdate()
+    //{
 
-        transform.position += (Vector3)playerInput*Time.deltaTime*moveSpeed;
+    //    transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
+    //}
+
+    private void Update()
+    {
+        transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
+
     }
 
     public void OnMove(InputValue value)
