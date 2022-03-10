@@ -6,9 +6,15 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
-    private Player instance;
+    public static Player instance;
     public Vector2 playerInput;
     public GameObject projectile;
+    public float BerryCount;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +23,8 @@ public class Player : MonoBehaviour
         {
             instance = this;
         }
+
+        BerryCount = 0;
     }
 
     void FixedUpdate()
