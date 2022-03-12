@@ -26,7 +26,7 @@ public class SceneManager : MonoBehaviour
         }
         player = Player.instance;
 
-        SpawnBerry();
+        SpawnIngredient();
         
     }
 
@@ -36,11 +36,9 @@ public class SceneManager : MonoBehaviour
         
     }
 
-    public void SpawnBerry()
+    public void SpawnIngredient()
     {
         Instantiate(berry, Location(), Quaternion.identity);
-
-
 
     }
 

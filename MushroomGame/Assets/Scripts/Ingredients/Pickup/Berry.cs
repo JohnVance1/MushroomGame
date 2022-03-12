@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Berry : MonoBehaviour
+public class Berry : IngredientBase
 {
     
     // Start is called before the first frame update
@@ -17,17 +17,15 @@ public class Berry : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             Destroy(gameObject);
             Player.instance.BerryCount++;
-            SceneManager.instance.SpawnBerry();
+            SceneManager.instance.SpawnIngredient();
         }
     }
-
-
 
 
 
