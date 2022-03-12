@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Berry : IngredientBase
 {
-    
-    // Start is called before the first frame update
     void Start()
     {
-        
+        type = Ingredients.Berry;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

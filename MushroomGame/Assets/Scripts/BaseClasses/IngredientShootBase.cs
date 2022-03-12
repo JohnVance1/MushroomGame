@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientShootBase : MonoBehaviour
+public class IngredientShootBase : Ingredient
 {
     public float moveSpeed;
 

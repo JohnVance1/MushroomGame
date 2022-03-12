@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Vector2 playerInput;
     public GameObject projectile;
     public float BerryCount;
+    public List<IngredientBase> playerIngredients;
 
     private void Awake()
     {
@@ -32,11 +33,10 @@ public class Player : MonoBehaviour
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
     }
 
-    //private void Update()
-    //{
-    //    transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
-
-    //}
+    public void PickedUp(IngredientBase ingBase)
+    {
+        playerIngredients.Add(ingBase);
+    }
 
     public void OnMove(InputValue value)
     {
