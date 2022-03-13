@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Vector2 playerInput;
     public GameObject projectile;
     public float BerryCount;
-    public List<IngredientBase> playerIngredients;
+    public List<GameObject> playerIngredients;
 
     private void Awake()
     {
@@ -33,9 +33,14 @@ public class Player : MonoBehaviour
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
     }
 
+    /// <summary>
+    /// Called when the Player collides with the ingredient
+    /// </summary>
+    /// <param name="ingBase"></param>
     public void PickedUp(IngredientBase ingBase)
     {
-        playerIngredients.Add(ingBase);
+        GameObject shoot = SceneManager.instance.SwitchIngredientType(ingBase);
+        playerIngredients.Add(shoot);
     }
 
     public void OnMove(InputValue value)
@@ -45,6 +50,8 @@ public class Player : MonoBehaviour
 
     public void OnShoot(InputValue value)
     {
-        Instantiate(projectile, transform.position, Quaternion.identity);
+        GameObject obj = playerIngredients[0];
+        Instantiate(obj, transform.position, Quaternion.identity);
+        
     }
 }

@@ -17,6 +17,11 @@ public class Cauldron : MonoBehaviour
         
     }
 
+    public void AddStoredIngredient()
+    {
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Ingredient")

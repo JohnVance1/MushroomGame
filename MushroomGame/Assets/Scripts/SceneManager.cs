@@ -11,6 +11,7 @@ public class SceneManager : MonoBehaviour
     public GameObject berry;
     public static SceneManager instance;
     private Player player;
+    public List<GameObject> ingredientPrefabs;
 
     private void Awake()
     {
@@ -36,10 +37,26 @@ public class SceneManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Switches the ingredient type for the Player
+    /// </summary>
+    /// <param name="ingBase"></param>
+    /// <returns></returns>
+    public GameObject SwitchIngredientType(IngredientBase ingBase)
+    {
+        foreach(GameObject b in ingredientPrefabs)
+        {
+            if(b.GetComponent<IngredientShootBase>().type == ingBase.type)
+            {
+                return b;
+            }
+        }
+        return null;
+    }
+
     public void SpawnIngredient()
     {
         Instantiate(berry, Location(), Quaternion.identity);
-
     }
 
     public Vector2 Location ()
