@@ -490,6 +490,7 @@ MonoBehaviour:
   bound1: {fileID: 72844313}
   bound2: {fileID: 2105175222}
   berry: {fileID: 5419489411092912847, guid: bd80099c8cde6214f8656a019d7d9bad, type: 3}
+  banana: {fileID: 3959820693247755812, guid: 18d45ac2eff8f4162961a28ab79516ef, type: 3}
 --- !u!4 &573764198
 Transform:
   m_ObjectHideFlags: 0

@@ -67,5 +67,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void HealPlayer(int healamount)
+    {
+        healthCurrent += healamount;
+
+        if(healthCurrent > healthInitial)
+        {
+            ResetHealth();
+        }
+    }
 
 }
