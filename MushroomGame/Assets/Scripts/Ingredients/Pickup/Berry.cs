@@ -18,6 +18,7 @@ public class Berry : IngredientBase
     {
         if (collision.tag == "Player")
         {
+            Player.instance.PickedUp(this);
             Destroy(gameObject);
             Player.instance.BerryCount++;
             SceneManager.instance.SpawnIngredient();

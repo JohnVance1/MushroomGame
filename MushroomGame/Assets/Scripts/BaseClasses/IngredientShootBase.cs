@@ -15,7 +15,7 @@ public class IngredientShootBase : Ingredient
     {
         transform.position += -transform.position.normalized * Time.deltaTime * moveSpeed;
 
-        if (transform.position.magnitude <= 0.2)
+        if (transform.position.magnitude <= 0.25)
         {
             Destroy(gameObject);
 

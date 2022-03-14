@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Cauldron : MonoBehaviour
 {
-    private List<IngredientShootBase> storedIngredients;
-    public List<IngredientShootBase> requiredIngredients;
+    public List<Ingredients> storedIngredients;
+    public List<Ingredients> requiredIngredients;
 
     void Start()
     {
@@ -14,21 +14,28 @@ public class Cauldron : MonoBehaviour
 
     void Update()
     {
-        
-    }
-
-    public void AddStoredIngredient()
-    {
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Ingredient")
+        if (CheckCompleteCauldron())
         {
-            //Destroy(gameObject);
-            //Player.instance.BerryCount++;
-            //SceneManager.instance.SpawnIngredient();
+            Debug.Log("Potion Complete!");
+        }
+
+    }
+
+    public bool CheckCompleteCauldron()
+    {
+        return false;
+    }
+
+    public void AddStoredIngredient(GameObject shootBase)
+    {
+        storedIngredients.Add(shootBase.GetComponent<IngredientShootBase>().type);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Ingredient")
+        {
+            AddStoredIngredient(collision.gameObject);
         }
     }
 }

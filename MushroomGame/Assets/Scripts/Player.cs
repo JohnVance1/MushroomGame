@@ -20,7 +20,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(instance == null)
+        playerIngredients = new List<GameObject>();
+        if (instance == null)
         {
             instance = this;
         }
@@ -50,8 +51,10 @@ public class Player : MonoBehaviour
 
     public void OnShoot(InputValue value)
     {
-        GameObject obj = playerIngredients[0];
-        Instantiate(obj, transform.position, Quaternion.identity);
-        
+        if (playerIngredients.Count > 0)
+        {
+            GameObject obj = playerIngredients[0];
+            Instantiate(obj, transform.position, Quaternion.identity);
+        }
     }
 }

@@ -18,10 +18,11 @@ public class IngredientBase : Ingredient
     {
         if (collision.tag == "Player")
         {
-            Destroy(gameObject);
             //Player.instance.BerryCount++;
             Player.instance.PickedUp(this);
             SceneManager.instance.SpawnIngredient();
+            Destroy(gameObject);
+
         }
     }
 }
