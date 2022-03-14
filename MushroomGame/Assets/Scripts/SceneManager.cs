@@ -12,6 +12,7 @@ public class SceneManager : MonoBehaviour
     public static SceneManager instance;
     private Player player;
     public List<GameObject> ingredientPrefabs;
+    public GameObject banana;
 
     private void Awake()
     {
@@ -28,6 +29,8 @@ public class SceneManager : MonoBehaviour
         player = Player.instance;
 
         SpawnIngredient();
+
+        Instantiate(banana, Location(), Quaternion.identity);
         
     }
 

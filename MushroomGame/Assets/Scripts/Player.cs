@@ -10,7 +10,12 @@ public class Player : MonoBehaviour
     public Vector2 playerInput;
     public GameObject projectile;
     public float BerryCount;
+
     public List<GameObject> playerIngredients;
+
+    [SerializeField] private int healthInitial = 10;
+    private int healthCurrent;
+
 
     private void Awake()
     {
@@ -27,6 +32,9 @@ public class Player : MonoBehaviour
         }
 
         BerryCount = 0;
+
+        
+
     }
 
     void FixedUpdate()
@@ -57,4 +65,29 @@ public class Player : MonoBehaviour
             Instantiate(obj, transform.position, Quaternion.identity);
         }
     }
+
+    public void ResetHealth()
+    {
+        healthCurrent = healthInitial; 
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        healthCurrent -= damageAmount;
+        if (healthCurrent <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void HealPlayer(int healamount)
+    {
+        healthCurrent += healamount;
+
+        if(healthCurrent > healthInitial)
+        {
+            ResetHealth();
+        }
+    }
+
 }
