@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The class for the Berry Pick-Up
+/// </summary>
 public class Berry : IngredientBase
 {
     void Start()
@@ -19,9 +22,8 @@ public class Berry : IngredientBase
         if (collision.tag == "Player")
         {
             Player.instance.PickedUp(this);
-            Destroy(gameObject);
-            Player.instance.BerryCount++;
             SceneManager.instance.SpawnIngredient();
+            Destroy(gameObject);
         }
     }
 

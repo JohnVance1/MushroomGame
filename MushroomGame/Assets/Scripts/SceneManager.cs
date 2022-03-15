@@ -13,6 +13,8 @@ public class SceneManager : MonoBehaviour
     private Player player;
     public List<GameObject> ingredientPrefabs;
     public GameObject banana;
+    public Cauldron cauldron;
+
 
     private void Awake()
     {
@@ -57,11 +59,28 @@ public class SceneManager : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Spawns the Ingredient chosen
+    /// </summary>
     public void SpawnIngredient()
     {
-        Instantiate(berry, Location(), Quaternion.identity);
+        GameObject spawnee = null;
+
+        foreach (GameObject obj in ingredientPrefabs)
+        {
+            if (cauldron.requiredIngredients.Contains(obj.GetComponent<IngredientBase>().type))
+            {
+                spawnee = obj;
+            }
+        }
+
+        Instantiate(spawnee, Location(), Quaternion.identity);
     }
 
+    /// <summary>
+    /// Helper Method for getting a random Vector2 location
+    /// </summary>
+    /// <returns></returns>
     public Vector2 Location ()
     {
         float minx = 0;
@@ -97,7 +116,7 @@ public class SceneManager : MonoBehaviour
         randX = Random.Range(minx, maxx);
         randY = Random.Range(miny, maxy);
 
-        if (player.BerryCount >= 1)
+        if (player.playerIngredients.Count >= 1)
         {
             if(SameSign(player.transform.position.x, randX) &&
                 SameSign(player.transform.position.y, randY))
@@ -121,6 +140,12 @@ public class SceneManager : MonoBehaviour
         return coordinate;
     }
 
+    /// <summary>
+    /// A helper method for checking if something is the same sign (+ or -)
+    /// </summary>
+    /// <param name="num1"></param>
+    /// <param name="num2"></param>
+    /// <returns></returns>
     public bool SameSign(float num1, float num2)
     {
         if((num1 > 0 && num2 > 0) || (num1 < 0 && num2 < 0))

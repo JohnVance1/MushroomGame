@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     public static Player instance;
     public Vector2 playerInput;
     public GameObject projectile;
-    public float BerryCount;
 
     public List<GameObject> playerIngredients;
 
@@ -29,12 +28,7 @@ public class Player : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-        }
-
-        BerryCount = 0;
-
-        
-
+        }  
     }
 
     void FixedUpdate()

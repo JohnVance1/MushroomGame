@@ -467,8 +467,8 @@ GameObject:
   m_Component:
   - component: {fileID: 547035781}
   - component: {fileID: 547035780}
-  - component: {fileID: 547035782}
   - component: {fileID: 547035783}
+  - component: {fileID: 547035782}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -553,8 +553,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6614646e6b4a2414fa26a09960a20fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredIngredients:
-  - {fileID: 6739097585233968235, guid: 287fd0057c78fa94384d45a7bf79dc89, type: 3}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  storedIngredients: 
+  requiredIngredients: 00000000000000000000000001000000
 --- !u!60 &547035783
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -642,6 +651,8 @@ MonoBehaviour:
   berry: {fileID: 5419489411092912847, guid: bd80099c8cde6214f8656a019d7d9bad, type: 3}
   ingredientPrefabs:
   - {fileID: 5419489411092912847, guid: 287fd0057c78fa94384d45a7bf79dc89, type: 3}
+  banana: {fileID: 3959820693247755812, guid: 18d45ac2eff8f4162961a28ab79516ef, type: 3}
+  cauldron: {fileID: 0}
 --- !u!4 &573764198
 Transform:
   m_ObjectHideFlags: 0

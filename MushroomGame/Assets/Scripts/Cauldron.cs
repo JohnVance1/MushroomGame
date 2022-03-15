@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UIElements;
 public class Cauldron : MonoBehaviour
 {
     public List<Ingredients> storedIngredients;
@@ -9,7 +9,7 @@ public class Cauldron : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -23,19 +23,33 @@ public class Cauldron : MonoBehaviour
 
     public bool CheckCompleteCauldron()
     {
-        return false;
+        if(storedIngredients.Count < requiredIngredients.Count)
+        {
+            return false;
+        }
+
+        if(requiredIngredients.Count <= 0)
+        {
+            return true;
+        }
+
+        return false;                
     }
 
-    public void AddStoredIngredient(GameObject shootBase)
+    public void AddStoredIngredient(IngredientShootBase shootBase)
     {
-        storedIngredients.Add(shootBase.GetComponent<IngredientShootBase>().type);
+        storedIngredients.Add(shootBase.type);
+        if(requiredIngredients.Contains(shootBase.type))
+        {
+            requiredIngredients.Remove(shootBase.type);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ingredient")
         {
-            AddStoredIngredient(collision.gameObject);
+            AddStoredIngredient(collision.gameObject.GetComponent<IngredientShootBase>());
         }
     }
 }

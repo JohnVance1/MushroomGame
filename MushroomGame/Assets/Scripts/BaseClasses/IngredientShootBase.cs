@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Base class for the Projectile Ingredients
+/// </summary>
 public class IngredientShootBase : Ingredient
 {
     public float moveSpeed;
