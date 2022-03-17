@@ -40,31 +40,47 @@ public class Player : MonoBehaviour
     /// Called when the Player collides with the ingredient
     /// </summary>
     /// <param name="ingBase"></param>
-    public void PickedUp(IngredientBase ingBase)
+    public void PickedUp(PickUpBase ingBase)
     {
         GameObject shoot = SceneManager.instance.SwitchIngredientType(ingBase);
         playerIngredients.Add(shoot);
     }
 
+    /// <summary>
+    /// The method thats called when the Move action is called
+    /// </summary>
+    /// <param name="value"></param>
     public void OnMove(InputValue value)
     {
         playerInput = value.Get<Vector2>();
     }
 
+    /// <summary>
+    /// The method that is called when the Fire action is called
+    /// </summary>
+    /// <param name="value"></param>
     public void OnShoot(InputValue value)
     {
         if (playerIngredients.Count > 0)
         {
-            GameObject obj = playerIngredients[0];
+            GameObject obj = playerIngredients[playerIngredients.Count - 1];
             Instantiate(obj, transform.position, Quaternion.identity);
+            playerIngredients.RemoveAt(playerIngredients.Count - 1);
         }
     }
 
+    /// <summary>
+    /// Resets the Player's current health
+    /// </summary>
     public void ResetHealth()
     {
         healthCurrent = healthInitial; 
     }
 
+    /// <summary>
+    /// Has the Player take a certain amount of damage
+    /// </summary>
+    /// <param name="damageAmount"> The amount of damage for the Player to take </param>
     public void TakeDamage(int damageAmount)
     {
         healthCurrent -= damageAmount;
@@ -74,6 +90,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Heals the Player by the amount specified
+    /// </summary>
+    /// <param name="healamount">The amount to be healed</param>
     public void HealPlayer(int healamount)
     {
         healthCurrent += healamount;

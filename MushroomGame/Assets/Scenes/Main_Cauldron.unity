@@ -553,17 +553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6614646e6b4a2414fa26a09960a20fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   storedIngredients: 
-  requiredIngredients: 00000000000000000000000001000000
+  requiredIngredients: 0100000001000000010000000100000001000000
+  randomIngredientNumber: 5
 --- !u!60 &547035783
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -649,10 +641,14 @@ MonoBehaviour:
   bound1: {fileID: 72844313}
   bound2: {fileID: 2105175222}
   berry: {fileID: 5419489411092912847, guid: bd80099c8cde6214f8656a019d7d9bad, type: 3}
-  ingredientPrefabs:
+  projectilePrefabs:
   - {fileID: 5419489411092912847, guid: 287fd0057c78fa94384d45a7bf79dc89, type: 3}
+  - {fileID: 5419489411092912847, guid: ced79a7d65a1fb2409af293840b63f3f, type: 3}
+  pickUpPrefabs:
+  - {fileID: 5419489411092912847, guid: bd80099c8cde6214f8656a019d7d9bad, type: 3}
+  - {fileID: 5419489411092912847, guid: a86b5af23fa72f444b85382ad3cf2ab3, type: 3}
   banana: {fileID: 3959820693247755812, guid: 18d45ac2eff8f4162961a28ab79516ef, type: 3}
-  cauldron: {fileID: 0}
+  cauldron: {fileID: 547035782}
 --- !u!4 &573764198
 Transform:
   m_ObjectHideFlags: 0

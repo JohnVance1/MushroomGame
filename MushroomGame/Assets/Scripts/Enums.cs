@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum Ingredients
 {
-    Berry,
-    Mushroom
+    Berry = 0,
+    Mushroom = 1
 
 }

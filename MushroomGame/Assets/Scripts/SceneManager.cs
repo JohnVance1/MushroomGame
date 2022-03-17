@@ -11,7 +11,8 @@ public class SceneManager : MonoBehaviour
     public GameObject berry;
     public static SceneManager instance;
     private Player player;
-    public List<GameObject> ingredientPrefabs;
+    public List<GameObject> projectilePrefabs;
+    public List<GameObject> pickUpPrefabs;
     public GameObject banana;
     public Cauldron cauldron;
 
@@ -47,9 +48,9 @@ public class SceneManager : MonoBehaviour
     /// </summary>
     /// <param name="ingBase"></param>
     /// <returns></returns>
-    public GameObject SwitchIngredientType(IngredientBase ingBase)
+    public GameObject SwitchIngredientType(PickUpBase ingBase)
     {
-        foreach(GameObject b in ingredientPrefabs)
+        foreach(GameObject b in projectilePrefabs)
         {
             if(b.GetComponent<IngredientShootBase>().type == ingBase.type)
             {
@@ -66,9 +67,9 @@ public class SceneManager : MonoBehaviour
     {
         GameObject spawnee = null;
 
-        foreach (GameObject obj in ingredientPrefabs)
+        foreach (GameObject obj in pickUpPrefabs)
         {
-            if (cauldron.requiredIngredients.Contains(obj.GetComponent<IngredientBase>().type))
+            if (cauldron.requiredIngredients.Contains(obj.GetComponent<PickUpBase>().type))
             {
                 spawnee = obj;
             }
