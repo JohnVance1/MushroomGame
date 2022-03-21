@@ -82,6 +82,11 @@ public class Cauldron : MonoBehaviour
         requiredIngredients.Add(ing);
     }
 
+    public void RemoveIngredient(Ingredients ing)
+    {
+        requiredIngredients.Remove(ing);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Ingredient")

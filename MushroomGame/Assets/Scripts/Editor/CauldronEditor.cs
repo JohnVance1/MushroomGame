@@ -6,6 +6,9 @@ using UnityEditor;
 [CustomEditor(typeof(Cauldron))]
 public class CauldronEditor : Editor
 {
+    public Ingredients ing;
+    public int numOfIngredients;
+
     public override void OnInspectorGUI()
     {
         Cauldron myTarget = (Cauldron)target;
@@ -18,9 +21,9 @@ public class CauldronEditor : Editor
         }
 
         GUILayout.Label("Add Custom Ingredients");
-        Ingredients ing = (Ingredients)EditorGUILayout.EnumPopup(Ingredients.Berry);
+        ing = (Ingredients)EditorGUILayout.EnumPopup("Ingredient type", ing);
 
-        int numOfIngredients = (int)GUILayout.HorizontalSlider(1, 1, 10);
+        numOfIngredients = (int)EditorGUILayout.Slider(numOfIngredients, 1, 10);
 
         GUILayout.BeginHorizontal();
 
@@ -34,7 +37,10 @@ public class CauldronEditor : Editor
 
         if (GUILayout.Button("Subtract Ingredient"))
         {
-            myTarget.RandomRequired(myTarget.randomIngredientNumber);
+            for (int i = 0; i < numOfIngredients; i++)
+            {
+                myTarget.RemoveIngredient(ing);
+            }
         }
 
         GUILayout.EndHorizontal();
