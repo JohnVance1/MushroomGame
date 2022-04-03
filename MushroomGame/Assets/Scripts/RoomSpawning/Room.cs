@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Flags]
 public enum Directions
 {
     UP = 1,
@@ -43,18 +45,20 @@ public class Room : MonoBehaviour
 
     public void Start()
     {
+        DirectionCount();
 
-        
+
     }
 
     public void Update()
     {
-        
+
     }
 
     public void DirectionCount()
     {
-        foreach(Directions dir in directions)
+        dirCount = 0;
+        foreach (Directions dir in directions)
         {
             dirCount += (int)dir;
         }

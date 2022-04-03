@@ -16,10 +16,16 @@ public class RoomManager : MonoBehaviour
     private Stack<Node> stack;
     public Room startingRoom;
 
+    private float timer;
+    private float timerMax;
+
+
     private void Start()
     {
         grid = new Grid(width, height);
         stack = new Stack<Node>();
+        timer = 0f;
+        timerMax = 2f;
         SpawnRooms();
     }
 
@@ -39,56 +45,152 @@ public class RoomManager : MonoBehaviour
 
         while (stack.Count > 0)
         {
-            previousNode = stack.Peek();
-
-            // Check the current nodes' rooms
-            currentNode = grid.CheckNeighbors(previousNode);
-
-            // if there isnt a neighbor return            
-            if(currentNode != null)
+            timer += Time.deltaTime;
+            if (timer >= timerMax)
             {
-                // if there is a neighbor then spawn a new room, set it to visited, and push it to the stack
-                CheckNeighborLocation(currentNode, previousNode);
-                currentNode.visited = true;
-                stack.Push(currentNode);
-                //previousNode = currentNode;
-            }
-            else
-            {
-                stack.Pop();
-            }
+                previousNode = stack.Peek();
 
+                // Check the current nodes' rooms
+                currentNode = grid.CheckNeighbors(previousNode);
+
+                // if there isnt a neighbor return            
+                if (currentNode != null)
+                {
+                    // if there is a neighbor then spawn a new room, set it to visited, and push it to the stack
+                    CheckNeighborLocation(currentNode, previousNode);
+                    currentNode.visited = true;
+                    stack.Push(currentNode);
+                    //previousNode = currentNode;
+                }
+                else
+                {
+                    stack.Pop();
+                }
+                timer = 0f;
+            }
         }    
 
+    }
+
+    public int DirectionsToBit(List<Directions> directions)
+    {
+        int bit = 0;
+
+        foreach(Directions dir in directions)
+        {
+            bit += (int)dir;
+        }
+
+        return bit;
     }
 
     public GameObject GetSpecificRoom(Node current, GameObject[] roomList)
     {
         List<Directions> dirs = GetRequiredDirections(current);
+        List<Directions> walls = GetWallDirections(current);
+
+        int dirsBit = DirectionsToBit(dirs);
+        int wallsBit = DirectionsToBit(walls);
+
+        if(wallsBit > 0)
+        {
+            Debug.Log(0);
+        }
+
         List<GameObject> spawnableRooms = new List<GameObject>();
 
         foreach(GameObject room in roomList)
         {
-            int num = 0;
-            foreach (Directions dir in dirs)
-            {
-                if (room.GetComponent<Room>().directions.Contains(dir))
-                {
-                    num++;
-                }
-            }
+            room.GetComponent<Room>().DirectionCount();
+            int roomBit = room.GetComponent<Room>().dirCount;
 
-            if(num == dirs.Count)
+            if(((roomBit & dirsBit) == dirsBit) &&
+                (((roomBit & wallsBit) != wallsBit) ||
+                wallsBit == 0))
             {
                 spawnableRooms.Add(room);
             }
 
+
+
+            //int num = 0;
+
+            //foreach (Directions dir in dirs)
+            //{
+            //    if (room.GetComponent<Room>().directions.Contains(dir))
+            //    {
+            //        num++;
+            //    }
+                
+            //}
+
+            //foreach (Directions wall in walls)
+            //{
+            //    if (room.GetComponent<Room>().directions.Contains(wall))
+            //    {
+            //        num--;
+            //    }
+
+            //}
+
+            //if (num == dirs.Count)
+            //{
+            //    spawnableRooms.Add(room);
+            //}
         }
 
         return spawnableRooms[Random.Range(0, spawnableRooms.Count)];
 
 
     }
+    public List<Directions> GetWallDirections(Node current)
+    {
+        int x = current.x;
+        int y = current.y;
+        List<Directions> directions = new List<Directions>();
+
+        Node up = grid.grid[x, y + 1];
+        Node down = grid.grid[x, y - 1];
+        Node right = grid.grid[x + 1, y];
+        Node left = grid.grid[x - 1, y];
+
+        if (up.visited)
+        {
+            if (!up.room.directions.Contains(Directions.DOWN))
+            {
+                directions.Add(Directions.UP);
+            }
+        }
+        if (down.visited)
+        {
+            if (!down.room.directions.Contains(Directions.UP))
+            {
+                directions.Add(Directions.DOWN);
+            }
+        }
+        if (right.visited)
+        {
+            if (!right.room.directions.Contains(Directions.LEFT))
+            {
+                directions.Add(Directions.RIGHT);
+            }
+        }
+        if (left.visited)
+        {
+            if (!left.room.directions.Contains(Directions.RIGHT))
+            {
+                directions.Add(Directions.LEFT);
+            }
+        }
+
+        if (directions.Count > 1)
+        {
+            Debug.Log(directions);
+        }
+
+        return directions;
+    }
+
 
     public List<Directions> GetRequiredDirections(Node current)
     {
@@ -175,6 +277,8 @@ public class RoomManager : MonoBehaviour
         spawnRoom.y = previous.y - 1;
         spawnRoom.x = previous.x;
         grid.grid[spawnRoom.x, spawnRoom.y].room = spawnRoom;
+        spawnRoom.DirectionCount();
+
         //spawnRoom.neighbors = grid.CheckNeighbors(spawnRoom.x, spawnRoom.y);
         //queue.Enqueue(spawnRoom);
 
@@ -193,6 +297,7 @@ public class RoomManager : MonoBehaviour
         spawnRoom.y = previous.y;
         spawnRoom.x = previous.x - 1;
         grid.grid[spawnRoom.x, spawnRoom.y].room = spawnRoom;
+        spawnRoom.DirectionCount();
         //spawnRoom.neighbors = grid.CheckNeighbors(spawnRoom.x, spawnRoom.y);
         //queue.Enqueue(spawnRoom);
 
@@ -210,6 +315,8 @@ public class RoomManager : MonoBehaviour
         spawnRoom.y = previous.y + 1;
         spawnRoom.x = previous.x;
         grid.grid[spawnRoom.x, spawnRoom.y].room = spawnRoom;
+        spawnRoom.DirectionCount();
+
         //spawnRoom.neighbors = grid.CheckNeighbors(spawnRoom.x, spawnRoom.y);
         //queue.Enqueue(spawnRoom);
 
@@ -228,6 +335,8 @@ public class RoomManager : MonoBehaviour
         spawnRoom.y = previous.y;
         spawnRoom.x = previous.x + 1;
         grid.grid[spawnRoom.x, spawnRoom.y].room = spawnRoom;
+        spawnRoom.DirectionCount();
+
         //spawnRoom.neighbors = grid.CheckNeighbors(spawnRoom.x, spawnRoom.y);
         //queue.Enqueue(spawnRoom);
 
