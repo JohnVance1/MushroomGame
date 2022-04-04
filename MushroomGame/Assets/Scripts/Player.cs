@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public float BerryCount;
     [SerializeField] private int healthInitial = 10;
     private int healthCurrent;
+    public float bulletCooldown;
+    float bulletTimer;
 
     private void Awake()
     {
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
+        bulletTimer -= Time.deltaTime;
     }
 
     //private void Update()
@@ -53,17 +56,29 @@ public class Player : MonoBehaviour
         Instantiate(projectile, transform.position, Quaternion.identity);
     }
 
+    //private void OnTriggerEnter2D(Collider2D collision)
+   // {
+    //    if(collision.tag == "Bullet" && bulletTimer <= 0)
+   //     {
+    //        healthCurrent -= 1;
+   //         Debug.Log("ouch");
+   //         bulletTimer = bulletCooldown;
+   //     }
+ //   }
+
     public void ResetHealth()
     {
         healthCurrent = healthInitial; 
     }
 
-    public void TakeDamage(int damageAmount)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        healthCurrent -= damageAmount;
-        if (healthCurrent <= 0)
+       //healthCurrent -= damageAmount;
+        if (collision.tag == "Bullet" && bulletTimer <= 0)
         {
-            Destroy(gameObject);
+            healthInitial -= 1;
+            print(healthInitial);
+            bulletTimer = bulletCooldown;
         }
     }
 
