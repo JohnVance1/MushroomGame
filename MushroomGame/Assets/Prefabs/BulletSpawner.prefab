@@ -43,11 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99b32fbce28a3447bad7a610883e40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletResource: {fileID: 7578564596886881717, guid: e41dcde1b7d5a024ba4dae5fa4d06470, type: 3}
-  minRotation: 1
-  maxRotation: 180
-  numberofBullets: 8
-  isRandom: 1
-  cooldown: 0.2
-  bulletSpeed: 5
-  bulletVelocity: {x: 1, y: 0}
+  spawnDatas: []
+  index: 0
+  isSequenceRandom: 1
+  spawningAutomatically: 1
