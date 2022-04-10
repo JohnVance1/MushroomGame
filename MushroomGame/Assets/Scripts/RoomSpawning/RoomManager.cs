@@ -19,13 +19,36 @@ public class RoomManager : MonoBehaviour
     private float timer;
     private float timerMax;
 
+    public List<GameObject> spawnedRooms;
+
 
     private void Start()
     {
         grid = new Grid(width, height);
         stack = new Stack<Node>();
+        spawnedRooms = new List<GameObject>();
         timer = 0f;
         timerMax = 2f;
+        SpawnRooms();
+    }
+
+    public void ClearGrid()
+    {
+        foreach(GameObject room in spawnedRooms)
+        {
+            spawnedRooms.Remove(room);
+            Destroy(room);
+        }
+
+        grid = new Grid(width, height);
+        stack = new Stack<Node>();
+        spawnedRooms = new List<GameObject>();
+
+    }
+
+    public void OnGenerate()
+    {
+        ClearGrid();
         SpawnRooms();
     }
 
@@ -244,26 +267,50 @@ public class RoomManager : MonoBehaviour
     {
         if (current.y == previous.y + 1)
         {
-            SpawnDownRoom(previous.room, current);
+            //SpawnDownRoom(previous.room, current);
+            SpawnAllRoom(previous.room, current, downOpenings, previous.room.upSpawnPoint, Directions.DOWN, 0, 1);
         }
         else if (current.y == previous.y - 1)
         {
-            SpawnUpRoom(previous.room, current);
+            //SpawnUpRoom(previous.room, current);
+            SpawnAllRoom(previous.room, current, upOpenings, previous.room.downSpawnPoint, Directions.UP, 0, -1);
         }
         else if (current.x == previous.x + 1)
         {
-            SpawnLeftRoom(previous.room, current);
+            //SpawnLeftRoom(previous.room, current);
+            SpawnAllRoom(previous.room, current, leftOpenings, previous.room.rightSpawnPoint, Directions.LEFT, 1, 0);
         }
         else if (current.x == previous.x - 1)
         {
-            SpawnRightRoom(previous.room, current);
+            //SpawnRightRoom(previous.room, current);
+            SpawnAllRoom(previous.room, current, rightOpenings, previous.room.leftSpawnPoint, Directions.RIGHT, -1, 0);
         }
 
         //previous.visited = false;
 
     }
 
-   
+    public void SpawnAllRoom(Room previous, Node current, GameObject[] roomList, GameObject spawnPoint, Directions toRemove, int x, int y)
+    {
+        int rand = Random.Range(0, roomList.Length);
+
+        GameObject spawnee = Instantiate(GetSpecificRoom(current, roomList), spawnPoint.transform.localPosition + previous.transform.position, Quaternion.identity);
+
+        Room spawnRoom = spawnee.GetComponent<Room>();
+        spawnRoom.directions.Remove(toRemove);
+        //current.directions.Remove(Directions.DOWN);
+
+        spawnRoom.y = previous.y + y;
+        spawnRoom.x = previous.x + x;
+        grid.grid[spawnRoom.x, spawnRoom.y].room = spawnRoom;
+        //spawnRoom.DirectionCount();
+        spawnedRooms.Add(spawnee);
+        //spawnRoom.neighbors = grid.CheckNeighbors(spawnRoom.x, spawnRoom.y);
+        //queue.Enqueue(spawnRoom);
+
+    }
+
+
     public void SpawnUpRoom(Room previous, Node current)
     {
         int rand = Random.Range(0, upOpenings.Length);

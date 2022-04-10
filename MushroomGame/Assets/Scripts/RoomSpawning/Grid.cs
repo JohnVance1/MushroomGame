@@ -16,7 +16,7 @@ public class Grid
         grid = new Node[width, height];
         PopulateGrid();
 
-    }
+    }       
 
     public void PopulateGrid()
     {
