@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public static Player instance;
     public Vector2 playerInput;
     public GameObject projectile;
+    public int currentRoom;
+
+    public List<GameObject> playerIngredients;
+
     public float BerryCount;
     [SerializeField] private int healthInitial = 10;
     private int healthCurrent;
@@ -82,5 +86,10 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    public void CheckCameraLocation()
+    {
+
+    }
 
 }
