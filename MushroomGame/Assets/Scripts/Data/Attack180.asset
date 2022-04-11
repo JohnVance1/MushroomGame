@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a47869e8a2f304d8defbdb67ecfa83, type: 3}
   m_Name: Attack180
   m_EditorClassIdentifier: 
-  bulletResource: {fileID: 7578564596886881717, guid: e41dcde1b7d5a024ba4dae5fa4d06470, type: 3}
+  bulletResource: {fileID: 1904968525395021177, guid: e1efccd425e48ec4d92ab804df1200bf, type: 3}
   minRotation: 0
   maxRotation: 180
   numberofBullets: 3
