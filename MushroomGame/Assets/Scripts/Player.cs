@@ -110,9 +110,9 @@ public class Player : MonoBehaviour
     /// Has the Player take a certain amount of damage
     /// </summary>
     /// <param name="damageAmount"> The amount of damage for the Player to take </param>
-    public void TakeDamage(int damageAmount)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-       //healthCurrent -= damageAmount;
+        //healthCurrent -= damageAmount;
         if (collision.tag == "Bullet" && bulletTimer <= 0)
         {
             healthInitial -= 1;

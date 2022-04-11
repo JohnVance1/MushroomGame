@@ -19,7 +19,7 @@ public class EnemyBulletsTest : MonoBehaviour
         Player player1 = player.GetComponent<Player>();
 
 
-        player1.TakeDamage(damageAmount);
+        //player1.TakeDamage(damageAmount);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
