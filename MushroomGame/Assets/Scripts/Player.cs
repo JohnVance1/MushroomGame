@@ -5,30 +5,43 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance { get; private set; }
+
     public float moveSpeed;
-    public static Player instance;
     public Vector2 playerInput;
     public GameObject projectile;
+    public int currentRoom;
+
+    public List<GameObject> playerIngredients;
+
     public float BerryCount;
     [SerializeField] private int healthInitial = 10;
     private int healthCurrent;
     public float bulletCooldown;
     float bulletTimer;
 
+    public int doorSpawnIndex;
+
     private void Awake()
     {
-        instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(instance == null)
+        if (instance != null && instance != this)
+        {
+            //Destroy(this);
+            Destroy(gameObject);
+        }
+        else
         {
             instance = this;
         }
+    }
 
+    void Start()
+    {
         BerryCount = 0;
+
+        Camera.main.GetComponent<CameraController>().player = this;
+
+        DontDestroyOnLoad(gameObject);
 
         
 
@@ -39,12 +52,6 @@ public class Player : MonoBehaviour
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
         bulletTimer -= Time.deltaTime;
     }
-
-    //private void Update()
-    //{
-    //    transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
-
-    //}
 
     public void OnMove(InputValue value)
     {
@@ -82,5 +89,7 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    
 
 }
