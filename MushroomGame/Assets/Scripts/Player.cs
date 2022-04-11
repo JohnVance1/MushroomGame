@@ -5,35 +5,54 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance { get; private set; }
+
     public float moveSpeed;
-    public static Player instance;
     public Vector2 playerInput;
     public GameObject projectile;
+    public int currentRoom;
 
     public List<GameObject> playerIngredients;
 
+    public float BerryCount;
     [SerializeField] private int healthInitial = 10;
     private int healthCurrent;
+    public float bulletCooldown;
+    float bulletTimer;
 
+    public int doorSpawnIndex;
 
     private void Awake()
     {
-        instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         playerIngredients = new List<GameObject>();
-        if (instance == null)
+        
+        if (instance != null && instance != this)
+        {
+            //Destroy(this);
+            Destroy(gameObject);
+        }
+        else
         {
             instance = this;
-        }  
+        }
+    }
+
+    void Start()
+    {
+        BerryCount = 0;
+
+        Camera.main.GetComponent<CameraController>().player = this;
+
+        DontDestroyOnLoad(gameObject);
+
+        
+
     }
 
     void FixedUpdate()
     {
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
+        bulletTimer -= Time.deltaTime;
     }
 
     /// <summary>
@@ -72,6 +91,16 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Resets the Player's current health
     /// </summary>
+    //private void OnTriggerEnter2D(Collider2D collision)
+   // {
+    //    if(collision.tag == "Bullet" && bulletTimer <= 0)
+   //     {
+    //        healthCurrent -= 1;
+   //         Debug.Log("ouch");
+   //         bulletTimer = bulletCooldown;
+   //     }
+ //   }
+
     public void ResetHealth()
     {
         healthCurrent = healthInitial; 
@@ -83,10 +112,12 @@ public class Player : MonoBehaviour
     /// <param name="damageAmount"> The amount of damage for the Player to take </param>
     public void TakeDamage(int damageAmount)
     {
-        healthCurrent -= damageAmount;
-        if (healthCurrent <= 0)
+       //healthCurrent -= damageAmount;
+        if (collision.tag == "Bullet" && bulletTimer <= 0)
         {
-            Destroy(gameObject);
+            healthInitial -= 1;
+            print(healthInitial);
+            bulletTimer = bulletCooldown;
         }
     }
 
@@ -103,5 +134,7 @@ public class Player : MonoBehaviour
             ResetHealth();
         }
     }
+
+    
 
 }
