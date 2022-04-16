@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player_Overworld : MonoBehaviour
 {
-    public static Player instance { get; private set; } 
+    public static Player_Overworld instance { get; private set; }
 
     public float moveSpeed;
     public Vector2 playerInput;
@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     public int currentRoom;
 
     public List<GameObject> playerIngredients;
-
-    //public List<Ingredient Enum> overworldIngredients;
 
     public float BerryCount;
     [SerializeField] private int healthInitial = 10;
@@ -41,11 +39,11 @@ public class Player : MonoBehaviour
     {
         BerryCount = 0;
 
-        Camera.main.GetComponent<CameraController>().player = this;
+        //Camera.main.GetComponent<CameraController>().player = this;
 
         DontDestroyOnLoad(gameObject);
 
-        
+
 
     }
 
@@ -60,45 +58,21 @@ public class Player : MonoBehaviour
         playerInput = value.Get<Vector2>();
     }
 
-    public void OnShoot(InputValue value)
-    {
-        Instantiate(projectile, transform.position, Quaternion.identity);
-    }
+    
+    //private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //    if(collision.tag == "Bullet" && bulletTimer <= 0)
+    //     {
+    //        healthCurrent -= 1;
+    //         Debug.Log("ouch");
+    //         bulletTimer = bulletCooldown;
+    //     }
+    //   }
 
     
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-   // {
-    //    if(collision.tag == "Bullet" && bulletTimer <= 0)
-   //     {
-    //        healthCurrent -= 1;
-   //         Debug.Log("ouch");
-   //         bulletTimer = bulletCooldown;
-   //     }
- //   }
-
-    public void ResetHealth()
-    {
-        healthCurrent = healthInitial; 
-    }
-
-    public void OverworldPickup(/*Enum type*/)
-    {
-        // overworldIngredients.Add(type);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       //healthCurrent -= damageAmount;
-        if (collision.tag == "Bullet" && bulletTimer <= 0)
-        {
-            healthInitial -= 1;
-            print(healthInitial);
-            bulletTimer = bulletCooldown;
-        }
+        
+        
     }
-
-
-    
-
 }
