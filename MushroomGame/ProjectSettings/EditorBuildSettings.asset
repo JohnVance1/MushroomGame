@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestScenes/FourthRoom.unity
     guid: 017788f24a7956a49a0da46ce2cb085f
+  - enabled: 1
+    path: Assets/Scenes/Main_Cauldron.unity
+    guid: 6c08b54638694c04191ab0d9a59ac286
   m_configObjects: {}

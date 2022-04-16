@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public List<GameObject> playerIngredients;
 
-    //public List<Ingredient Enum> overworldIngredients;
+    public List<Ingredients> overworldIngredients;
 
     public float BerryCount;
     [SerializeField] private int healthInitial = 10;
@@ -23,11 +23,14 @@ public class Player : MonoBehaviour
     float bulletTimer;
 
     public int doorSpawnIndex;
+    public bool inOverworld;
 
     private void Awake()
     {
         playerIngredients = new List<GameObject>();
-        
+        //overworldIngredients = new List<Ingredients>();
+        inOverworld = false;
+
         if (instance != null && instance != this)
         {
             //Destroy(this);
@@ -43,8 +46,10 @@ public class Player : MonoBehaviour
     {
         BerryCount = 0;
 
-        Camera.main.GetComponent<CameraController>().player = this;
-
+        if (inOverworld)
+        {
+            Camera.main.GetComponent<CameraController>().player = this;
+        }
         DontDestroyOnLoad(gameObject);
 
         
@@ -109,9 +114,10 @@ public class Player : MonoBehaviour
         healthCurrent = healthInitial; 
     }
 
-    public void OverworldPickup(/*Enum type*/)
+    public void OverworldPickup(Ingredients type)
     {
-        // overworldIngredients.Add(type);
+        overworldIngredients.Add(type);
+
     }
 
     /// <summary>
