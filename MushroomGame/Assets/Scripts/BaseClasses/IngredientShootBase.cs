@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientShootBase : MonoBehaviour
+/// <summary>
+/// The Base class for the Projectile Ingredients
+/// </summary>
+public class IngredientShootBase : Ingredient
 {
     public float moveSpeed;
 
@@ -15,7 +18,7 @@ public class IngredientShootBase : MonoBehaviour
     {
         transform.position += -transform.position.normalized * Time.deltaTime * moveSpeed;
 
-        if (transform.position.magnitude <= 0.2)
+        if (transform.position.magnitude <= 0.25)
         {
             Destroy(gameObject);
 

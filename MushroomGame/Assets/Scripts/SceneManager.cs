@@ -11,6 +11,11 @@ public class SceneManager : MonoBehaviour
     public GameObject berry;
     public static SceneManager instance;
     private Player player;
+    public List<GameObject> projectilePrefabs;
+    public List<GameObject> pickUpPrefabs;
+    public GameObject banana;
+    public Cauldron cauldron;
+
 
     private void Awake()
     {
@@ -27,6 +32,8 @@ public class SceneManager : MonoBehaviour
         player = Player.instance;
 
         SpawnIngredient();
+
+        Instantiate(banana, Location(), Quaternion.identity);
         
     }
 
@@ -36,12 +43,45 @@ public class SceneManager : MonoBehaviour
         
     }
 
-    public void SpawnIngredient()
+    /// <summary>
+    /// Switches the ingredient type for the Player
+    /// </summary>
+    /// <param name="ingBase"></param>
+    /// <returns></returns>
+    public GameObject SwitchIngredientType(PickUpBase ingBase)
     {
-        Instantiate(berry, Location(), Quaternion.identity);
-
+        foreach(GameObject b in projectilePrefabs)
+        {
+            if(b.GetComponent<IngredientShootBase>().type == ingBase.type)
+            {
+                return b;
+            }
+        }
+        return null;
     }
 
+    /// <summary>
+    /// Spawns the Ingredient chosen
+    /// </summary>
+    public void SpawnIngredient()
+    {
+        GameObject spawnee = null;
+
+        foreach (GameObject obj in pickUpPrefabs)
+        {
+            if (cauldron.requiredIngredients.Contains(obj.GetComponent<PickUpBase>().type))
+            {
+                spawnee = obj;
+            }
+        }
+
+        Instantiate(spawnee, Location(), Quaternion.identity);
+    }
+
+    /// <summary>
+    /// Helper Method for getting a random Vector2 location
+    /// </summary>
+    /// <returns></returns>
     public Vector2 Location ()
     {
         float minx = 0;
@@ -77,7 +117,7 @@ public class SceneManager : MonoBehaviour
         randX = Random.Range(minx, maxx);
         randY = Random.Range(miny, maxy);
 
-        if (player.BerryCount >= 1)
+        if (player.playerIngredients.Count >= 1)
         {
             if(SameSign(player.transform.position.x, randX) &&
                 SameSign(player.transform.position.y, randY))
@@ -101,6 +141,12 @@ public class SceneManager : MonoBehaviour
         return coordinate;
     }
 
+    /// <summary>
+    /// A helper method for checking if something is the same sign (+ or -)
+    /// </summary>
+    /// <param name="num1"></param>
+    /// <param name="num2"></param>
+    /// <returns></returns>
     public bool SameSign(float num1, float num2)
     {
         if((num1 > 0 && num2 > 0) || (num1 < 0 && num2 < 0))

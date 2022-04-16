@@ -5,11 +5,11 @@ using UnityEngine;
 /// <summary>
 /// The class for the Berry Pick-Up
 /// </summary>
-public class Berry : PickUpBase
+public class Mushroom : PickUpBase
 {
     void Start()
     {
-        type = Ingredients.Berry;
+        type = Ingredients.Mushroom;
     }
 
     void Update()

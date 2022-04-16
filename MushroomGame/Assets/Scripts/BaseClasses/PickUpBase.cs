@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientBase : MonoBehaviour
+
+public class PickUpBase : Ingredient
 {
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -20,9 +19,11 @@ public class IngredientBase : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Destroy(gameObject);
             //Player.instance.BerryCount++;
+            Player.instance.PickedUp(this);
             SceneManager.instance.SpawnIngredient();
+            Destroy(gameObject);
+
         }
     }
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 /// <summary>
 /// The class for the Berry Projectile
 /// </summary>
-public class Berry_Projectile : IngredientShootBase
+public class Mushroom_Projectile : IngredientShootBase
 {
 
 
     void Start()
     {
-        type = Ingredients.Berry;
+        type = Ingredients.Mushroom;
     }
 
     public override void Update()
