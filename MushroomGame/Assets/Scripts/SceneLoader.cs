@@ -20,7 +20,9 @@ public class SceneLoader : MonoBehaviour
     }
 
     private string lastTrigger;
+    private string lastLevel;
 
+    public string LastTrigger { get; }
 
     void Start()
     {        
@@ -30,8 +32,17 @@ public class SceneLoader : MonoBehaviour
     public void OnEnteredExitTrigger(string triggerName, string levelToLoad)
     {
         lastTrigger = triggerName;
+        lastLevel = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad);
     }
+
+    public void ExitCauldron(string triggerName)
+    {
+        //lastTrigger = triggerName;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(lastLevel);
+    }
+
+
 
     void OnLevelWasLoaded()
     {
@@ -46,7 +57,6 @@ public class SceneLoader : MonoBehaviour
                 return;
             }
         }
-        //handle there not being any sceneloaders here somehow.
     }
 }
  

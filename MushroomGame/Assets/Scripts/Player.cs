@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public static Player instance { get; private set; }
+    public static Player instance { get; private set; } 
 
     public float moveSpeed;
     public Vector2 playerInput;
@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     public List<GameObject> playerIngredients;
 
+    public List<Ingredients> overworldIngredients;
+
     public float BerryCount;
     [SerializeField] private int healthInitial = 10;
     private int healthCurrent;
@@ -21,11 +23,14 @@ public class Player : MonoBehaviour
     float bulletTimer;
 
     public int doorSpawnIndex;
+    public bool inOverworld;
 
     private void Awake()
     {
         playerIngredients = new List<GameObject>();
-        
+        //overworldIngredients = new List<Ingredients>();
+        inOverworld = false;
+
         if (instance != null && instance != this)
         {
             //Destroy(this);
@@ -41,8 +46,10 @@ public class Player : MonoBehaviour
     {
         BerryCount = 0;
 
-        Camera.main.GetComponent<CameraController>().player = this;
-
+        if (inOverworld)
+        {
+            Camera.main.GetComponent<CameraController>().player = this;
+        }
         DontDestroyOnLoad(gameObject);
 
         
@@ -88,6 +95,7 @@ public class Player : MonoBehaviour
         }
     }
 
+
     /// <summary>
     /// Resets the Player's current health
     /// </summary>
@@ -104,6 +112,12 @@ public class Player : MonoBehaviour
     public void ResetHealth()
     {
         healthCurrent = healthInitial; 
+    }
+
+    public void OverworldPickup(Ingredients type)
+    {
+        overworldIngredients.Add(type);
+
     }
 
     /// <summary>

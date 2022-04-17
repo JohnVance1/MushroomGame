@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class Cauldron : MonoBehaviour
 {
+    public string triggerName;
+
     // The list of ingredients that the Cauldron currently stores
     public List<Ingredients> storedIngredients;
 
@@ -17,6 +19,8 @@ public class Cauldron : MonoBehaviour
     void Start()
     {
         randomIngredientNumber = 0;
+        triggerName = SceneLoader.instance.LastTrigger;
+        requiredIngredients = Player.instance.overworldIngredients;
     }
 
     void Update()
@@ -24,6 +28,8 @@ public class Cauldron : MonoBehaviour
         if (CheckCompleteCauldron())
         {
             Debug.Log("Potion Complete!");
+            Player.instance.overworldIngredients.Clear();
+            SceneLoader.instance.ExitCauldron(triggerName);
         }
 
     }

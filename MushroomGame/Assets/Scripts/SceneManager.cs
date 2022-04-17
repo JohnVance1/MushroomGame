@@ -33,7 +33,7 @@ public class SceneManager : MonoBehaviour
 
         SpawnIngredient();
 
-        Instantiate(banana, Location(), Quaternion.identity);
+        //Instantiate(banana, Location(), Quaternion.identity);
         
     }
 
