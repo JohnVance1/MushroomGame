@@ -15,6 +15,8 @@ public class BulletSpawner : MonoBehaviour
 
    
     float timer;
+    float newtimer;
+    float newtimermax;
   
 
     float[] rotations;
@@ -22,7 +24,8 @@ public class BulletSpawner : MonoBehaviour
     void Start()
     {
         timer = GetSpawnData().cooldown;
-
+        newtimermax = 2f;
+        newtimer = 0;
        // rotations = new float[GetSpawnData().numberofBullets];
 
         if (GetSpawnData().isRandom)
@@ -101,7 +104,7 @@ public class BulletSpawner : MonoBehaviour
 
         }
 
-
+        
         return spawnedBullets;  
     }
 

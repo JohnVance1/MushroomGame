@@ -15,7 +15,7 @@ public class BulletManager : MonoBehaviour
     {
         for (int i = 0; i < bullets.Count; i++)
         {
-            if (!bullets[i].active)
+            if (!bullets[i].activeInHierarchy)
             {
 
                bullets[i].GetComponent<Bullet>().ResetTimer();

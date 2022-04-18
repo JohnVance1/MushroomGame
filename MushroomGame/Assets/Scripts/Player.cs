@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dialogueUI.IsOpen) return;
+       // if (dialogueUI.IsOpen) return;
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
         bulletTimer -= Time.deltaTime;
 

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a47869e8a2f304d8defbdb67ecfa83, type: 3}
-  m_Name: Attack90
+  m_Name: Attack3rdQuad
   m_EditorClassIdentifier: 
   bulletResource: {fileID: 1904968525395021177, guid: e1efccd425e48ec4d92ab804df1200bf, type: 3}
-  minRotation: 0
-  maxRotation: 90
-  numberofBullets: 7
-  isRandom: 0
+  minRotation: 180
+  maxRotation: 270
+  numberofBullets: 9
+  isRandom: 1
   isNotParent: 1
-  cooldown: 3
-  bulletSpeed: 3
-  bulletVelocity: {x: 3, y: 0}
+  cooldown: 0.9
+  bulletSpeed: 4
+  bulletVelocity: {x: 2, y: 0}
