@@ -70,7 +70,7 @@ public class SceneLoader : MonoBehaviour
         sceneGates = new Dictionary<string, List<bool>>();
         gateManager = FindObjectOfType<GateManager>();
         List<bool> isOpen = new List<bool>();
-        foreach (GameObject gate in gateManager.gates)
+        foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
         {
             isOpen.Add(gate.GetComponent<Gate>().open);
         }
@@ -85,7 +85,7 @@ public class SceneLoader : MonoBehaviour
         if (sceneGates.ContainsKey(levelName))
         {
             List<bool> isOpen = new List<bool>();
-            foreach (GameObject gate in gateManager.gates)
+            foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
             {
                 isOpen.Add(gate.GetComponent<Gate>().open);
             }
@@ -103,7 +103,7 @@ public class SceneLoader : MonoBehaviour
             {
                 gateManager = FindObjectOfType<GateManager>();
                 List<bool> isOpen = new List<bool>();
-                foreach (GameObject gate in gateManager.gates)
+                foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
                 {
                     isOpen.Add(gate.GetComponent<Gate>().open);
                 }
@@ -116,13 +116,15 @@ public class SceneLoader : MonoBehaviour
                 List<bool> tempGates = new List<bool>();
                 if (sceneGates.TryGetValue(levelName, out tempGates))
                 {
-                    for (int i = 0; i < gateManager.gates.Count; i++)
+                    int i = 0;
+                    foreach(GameObject gate in gateManager.gatesAndPlates.Keys)
                     {
                         if (tempGates[i])
                         {
-                            gateManager.gates[i].GetComponent<Gate>().OpenGate();
+                            gate.GetComponent<Gate>().OpenGate();
                         }
-                    }
+                        i++;
+                    }                    
                 }
 
             }

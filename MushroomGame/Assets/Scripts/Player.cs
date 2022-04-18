@@ -25,10 +25,13 @@ public class Player : MonoBehaviour
     public int doorSpawnIndex;
     public bool inOverworld;
 
+    private Animator animator;
+
     private void Awake()
     {
         playerIngredients = new List<GameObject>();
         //overworldIngredients = new List<Ingredients>();
+        animator = GetComponent<Animator>();
         inOverworld = false;
 
         if (instance != null && instance != this)
@@ -56,9 +59,32 @@ public class Player : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (playerInput != Vector2.zero)
+        {
+            animator.SetBool("Walk", true);
+            if(playerInput.x < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (playerInput.x > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+
+            }
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+
+        }
+    }
+
     void FixedUpdate()
     {
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
+        transform.position = new Vector3(transform.position.x, transform.position.y, 1.5f);
         bulletTimer -= Time.deltaTime;
     }
 

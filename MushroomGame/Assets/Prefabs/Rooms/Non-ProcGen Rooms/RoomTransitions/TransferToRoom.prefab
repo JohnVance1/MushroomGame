@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerName: 
   levelToLoad: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 387993701992674092}
 --- !u!1 &387993701992674093
 GameObject:
   m_ObjectHideFlags: 0
