@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
+    [SerializeField] private DialogueUI dialogueUI;
+    public DialogueUI DialogueUI => dialogueUI;
+    public IInteractable Interactable { get; set; }
     private void Awake()
     {
         playerIngredients = new List<GameObject>();
@@ -83,10 +86,22 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+       // if (dialogueUI.IsOpen) return;
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
         transform.position = new Vector3(transform.position.x, transform.position.y, 1.5f);
         bulletTimer -= Time.deltaTime;
+
+        if (Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            if (Interactable != null)
+            {
+                Interactable.Interact(this);
+            }
+        }
+
     }
+
+   
 
     /// <summary>
     /// Called when the Player collides with the ingredient
