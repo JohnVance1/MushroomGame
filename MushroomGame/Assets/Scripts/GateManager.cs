@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GateManager : MonoBehaviour
 {
-    public GameObject gate;
+    public List<GameObject> gates;
     public List<GameObject> plates = new List<GameObject>();
     private bool openGate;
 
@@ -19,15 +19,15 @@ public class GateManager : MonoBehaviour
         openGate = true;
         foreach (GameObject plate in plates)
         {
-            //if(!plate.GetComponent<PressurePlate>().active)
-            //{
-            //    openGate = false;
-            //}
+            if (!plate.GetComponent<PressurePlate>().active)
+            {
+                openGate = false;
+            }
         }
 
         if(openGate)
         {
-            gate.GetComponent<Gate>().OpenGate();
+            gates[0].GetComponent<Gate>().OpenGate();
         }
     }
 }
