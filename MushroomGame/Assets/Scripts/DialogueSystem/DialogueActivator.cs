@@ -13,7 +13,9 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         
         if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
         {
-            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main_Cauldron")
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main_Cauldron" ||
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "StartingRoom" ||
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "SecondRoom")
             {
                 Interact(player);
 
