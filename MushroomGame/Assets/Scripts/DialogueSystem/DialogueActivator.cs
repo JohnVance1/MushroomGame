@@ -5,14 +5,29 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject;
     //implement Iinteractable interface
-   
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        
         if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
         {
-            player.Interactable = this;
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main_Cauldron")
+            {
+                Interact(player);
+
+                Destroy(GetComponent<BoxCollider2D>());
+            }
+            else
+            {
+                player.Interactable = this;
+               
+            }
+          
+            
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)

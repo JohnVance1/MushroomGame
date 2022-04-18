@@ -13,7 +13,10 @@ public class BulletSpawner : MonoBehaviour
         return spawnDatas[index];
     }
 
-   
+    [SerializeField] private DialogueUI dialogueUI;
+    public DialogueUI DialogueUI => dialogueUI;
+    public IInteractable Interactable { get; set; }
+
     float timer;
     float newtimer;
     float newtimermax;
@@ -38,7 +41,7 @@ public class BulletSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (dialogueUI.IsOpen) return;
         if (spawningAutomatically)
         {
             if (timer <= 0)
