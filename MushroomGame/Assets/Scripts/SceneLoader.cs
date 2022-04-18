@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -36,6 +39,18 @@ public class SceneLoader : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void LoadScene(int sceneName)
+    {
+         changing = sceneName;
+        Invoke("ChangeScene", 2f);
+
+
+    }
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(changing);
+    }
     public void OnEnteredExitTrigger(string triggerName, string levelToLoad)
     {
         lastTrigger = triggerName;
@@ -125,5 +140,12 @@ public class SceneLoader : MonoBehaviour
             }
         }
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public int changing;
 }
  

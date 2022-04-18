@@ -37,6 +37,11 @@ public class SceneManager : MonoBehaviour
         
     }
 
+    internal static void LoadScene(int change)
+    {
+        throw new System.NotImplementedException();
+    }
+
     // Update is called once per frame
     void Update()
     {
