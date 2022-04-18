@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
     public int doorSpawnIndex;
     public bool inOverworld;
 
+    [SerializeField] private DialogueUI dialogueUI;
+    public DialogueUI DialogueUI => dialogueUI;
+    public IInteractable Interactable { get; set; }
     private void Awake()
     {
         playerIngredients = new List<GameObject>();
@@ -58,9 +61,21 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (dialogueUI.IsOpen) return;
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
         bulletTimer -= Time.deltaTime;
+
+        if (Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            if (Interactable != null)
+            {
+                Interactable.Interact(this);
+            }
+        }
+
     }
+
+   
 
     /// <summary>
     /// Called when the Player collides with the ingredient
