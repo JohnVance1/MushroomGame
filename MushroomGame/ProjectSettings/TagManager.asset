@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ingredient
   - Boulder
+  - Bullet
   layers:
   - Default
   - TransparentFX

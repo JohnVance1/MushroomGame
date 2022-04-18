@@ -69,12 +69,15 @@ public class SceneLoader : MonoBehaviour
     {
         sceneGates = new Dictionary<string, List<bool>>();
         gateManager = FindObjectOfType<GateManager>();
-        List<bool> isOpen = new List<bool>();
-        foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
+        if (gateManager != null)
         {
-            isOpen.Add(gate.GetComponent<Gate>().open);
+            List<bool> isOpen = new List<bool>();
+            foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
+            {
+                isOpen.Add(gate.GetComponent<Gate>().open);
+            }
+            sceneGates.Add(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, isOpen);
         }
-        sceneGates.Add(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name, isOpen);
     }
 
     
@@ -82,14 +85,17 @@ public class SceneLoader : MonoBehaviour
     {
         string levelName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
-        if (sceneGates.ContainsKey(levelName))
+        if (gateManager != null)
         {
-            List<bool> isOpen = new List<bool>();
-            foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
+            if (sceneGates.ContainsKey(levelName))
             {
-                isOpen.Add(gate.GetComponent<Gate>().open);
+                List<bool> isOpen = new List<bool>();
+                foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
+                {
+                    isOpen.Add(gate.GetComponent<Gate>().open);
+                }
+                sceneGates[levelName] = isOpen;
             }
-            sceneGates[levelName] = isOpen;
         }
     }
 
@@ -97,34 +103,46 @@ public class SceneLoader : MonoBehaviour
     {
         string levelName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
+        DialogueUI dialouge = FindObjectOfType<DialogueUI>();
+        if(dialouge != null)
+        {
+            Player.instance.DialogueUI = dialouge;
+        }
+
         if (sceneGates != null)
         {
             if (!sceneGates.ContainsKey(levelName))
             {
                 gateManager = FindObjectOfType<GateManager>();
-                List<bool> isOpen = new List<bool>();
-                foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
+                if (gateManager != null)
                 {
-                    isOpen.Add(gate.GetComponent<Gate>().open);
+                    List<bool> isOpen = new List<bool>();
+                    foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
+                    {
+                        isOpen.Add(gate.GetComponent<Gate>().open);
+                    }
+                    sceneGates.Add(levelName, isOpen);
                 }
-                sceneGates.Add(levelName, isOpen);
 
             }
             else
             {
                 gateManager = FindObjectOfType<GateManager>();
-                List<bool> tempGates = new List<bool>();
-                if (sceneGates.TryGetValue(levelName, out tempGates))
+                if (gateManager != null)
                 {
-                    int i = 0;
-                    foreach(GameObject gate in gateManager.gatesAndPlates.Keys)
+                    List<bool> tempGates = new List<bool>();
+                    if (sceneGates.TryGetValue(levelName, out tempGates))
                     {
-                        if (tempGates[i])
+                        int i = 0;
+                        foreach (GameObject gate in gateManager.gatesAndPlates.Keys)
                         {
-                            gate.GetComponent<Gate>().OpenGate();
+                            if (tempGates[i])
+                            {
+                                gate.GetComponent<Gate>().OpenGate();
+                            }
+                            i++;
                         }
-                        i++;
-                    }                    
+                    }
                 }
 
             }

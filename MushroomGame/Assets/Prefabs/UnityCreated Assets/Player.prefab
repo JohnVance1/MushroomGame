@@ -133,6 +133,7 @@ MonoBehaviour:
   playerInput: {x: 0, y: 0}
   projectile: {fileID: 0}
   currentRoom: 1
+  hatSprite: {fileID: 21300000, guid: 5cc6ecb6a5d1ac54a8fd945b4c7c1d86, type: 3}
   playerIngredients: []
   overworldIngredients: 
   BerryCount: 0
@@ -140,6 +141,7 @@ MonoBehaviour:
   bulletCooldown: 0
   doorSpawnIndex: 0
   inOverworld: 0
+  dialogueUI: {fileID: 0}
 --- !u!50 &5310714891300363711
 Rigidbody2D:
   serializedVersion: 4

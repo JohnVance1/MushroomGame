@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Vector2 playerInput;
     public GameObject projectile;
     public int currentRoom;
+    public Sprite hatSprite;
 
     public List<GameObject> playerIngredients;
 
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
     public float BerryCount;
     [SerializeField] private int healthInitial = 10;
     private int healthCurrent;
-    public float bulletCooldown;
+    public float bulletCooldown = 2f;
     float bulletTimer;
 
     public int doorSpawnIndex;
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private DialogueUI dialogueUI;
-    public DialogueUI DialogueUI => dialogueUI;
+    public DialogueUI DialogueUI { get { return dialogueUI; } set { dialogueUI = value; } }
     public IInteractable Interactable { get; set; }
     private void Awake()
     {
@@ -51,7 +52,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         BerryCount = 0;
-
+        bulletCooldown = 2f;
         if (inOverworld)
         {
             Camera.main.GetComponent<CameraController>().player = this;
@@ -64,29 +65,49 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (playerInput != Vector2.zero)
+        if(bulletTimer <= 0)
         {
-            animator.SetBool("Walk", true);
-            if(playerInput.x < 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if (playerInput.x > 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = false;
-
-            }
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
-        else
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main_Cauldron" ||
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "BossCauldron")
         {
+            GetComponent<SpriteRenderer>().sprite = hatSprite;
+            animator.SetBool("InCombat", true);
             animator.SetBool("Walk", false);
 
         }
+        else
+        {
+            animator.SetBool("InCombat", false);
+
+            if (playerInput != Vector2.zero)
+            {
+                animator.SetBool("Walk", true);
+                if (playerInput.x < 0)
+                {
+                    GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else if (playerInput.x > 0)
+                {
+                    GetComponent<SpriteRenderer>().flipX = false;
+
+                }
+            }
+            else
+            {
+                animator.SetBool("Walk", false);
+
+            }
+        } 
     }
 
     void FixedUpdate()
     {
-       if (dialogueUI.IsOpen) return;
+        if (dialogueUI != null)
+        {
+            if (dialogueUI.IsOpen) return;
+        }
         transform.position += (Vector3)playerInput * Time.deltaTime * moveSpeed;
         transform.position = new Vector3(transform.position.x, transform.position.y, 1.5f);
         bulletTimer -= Time.deltaTime;
@@ -173,6 +194,7 @@ public class Player : MonoBehaviour
             healthInitial -= 1;
             print(healthInitial);
             bulletTimer = bulletCooldown;
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
 

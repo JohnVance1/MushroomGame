@@ -649,6 +649,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5132960852958669432, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 63
+      objectReference: {fileID: 0}
     - target: {fileID: 5132960852958669433, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
@@ -1474,7 +1478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 796529536110301385, guid: a6e3a44f6e0a75b4d96d2b26846d453d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 796529536110301386, guid: a6e3a44f6e0a75b4d96d2b26846d453d, type: 3}
       propertyPath: m_RootOrder
@@ -1575,7 +1579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1980954201
 AudioListener:
   m_ObjectHideFlags: 0
