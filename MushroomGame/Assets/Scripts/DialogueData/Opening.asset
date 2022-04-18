@@ -14,13 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - 'Huh what am I doing here? The last thing I remember going to class... '
-  - AAAAAAH!!! WHO'S THERE?
-  - 'Oh a cauldron... that can walk??  I really need to find my way back to school.
-    I have a 7 page paper on mycological medicinall applications due tomorrow. '
-  - 'Can you stop following me...
-
-    ...
-
-
-'
-  - "Fine I guess you're not harming anybody. Come\non, lets find your owner. \n\n\n"
+  - 'I really need to find my way back to school. I have a 7 page paper on mycological
+    medicinal applications due tomorrow. '
+  - It looks like theres a gate ahead, but it looks locked. I wonder if theres anything
+    that can open it around here.....

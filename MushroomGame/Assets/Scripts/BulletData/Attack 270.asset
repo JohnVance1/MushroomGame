@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a47869e8a2f304d8defbdb67ecfa83, type: 3}
   m_Name: Attack 270
   m_EditorClassIdentifier: 
-  bulletResource: {fileID: 0}
-  minRotation: 0
-  maxRotation: 0
-  numberofBullets: 0
+  bulletResource: {fileID: 1904968525395021177, guid: e1efccd425e48ec4d92ab804df1200bf, type: 3}
+  minRotation: 180
+  maxRotation: 360
+  numberofBullets: 5
   isRandom: 0
-  isNotParent: 0
-  cooldown: 0
-  bulletSpeed: 0
-  bulletVelocity: {x: 0, y: 0}
+  isNotParent: 1
+  cooldown: 0.9
+  bulletSpeed: 1
+  bulletVelocity: {x: 1, y: 0}

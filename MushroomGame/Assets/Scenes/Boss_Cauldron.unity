@@ -149,18 +149,18 @@ PrefabInstance:
     - target: {fileID: 6498209238965356009, guid: 3a67e3fd85b99044984ea71bd833c0b6, type: 3}
       propertyPath: spawnDatas.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: ecd2ccb4f453584459a0ab07ec6599a7, type: 2}
+      objectReference: {fileID: 11400000, guid: c4ef28c8e29990b4aa1c8e18c503014e, type: 2}
     - target: {fileID: 6498209238965356014, guid: 3a67e3fd85b99044984ea71bd833c0b6, type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6498209238965356014, guid: 3a67e3fd85b99044984ea71bd833c0b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.83
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6498209238965356014, guid: 3a67e3fd85b99044984ea71bd833c0b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.01
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 6498209238965356014, guid: 3a67e3fd85b99044984ea71bd833c0b6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -679,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498209238965356008, guid: 3a67e3fd85b99044984ea71bd833c0b6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6498209238965356009, guid: 3a67e3fd85b99044984ea71bd833c0b6, type: 3}
       propertyPath: dialogueUI

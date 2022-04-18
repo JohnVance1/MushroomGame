@@ -15,6 +15,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         {
             if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main_Cauldron" ||
                 UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "ThirdRoom")
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "StartingRoom" ||
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "SecondRoom")
             {
                 Interact(player);
 
