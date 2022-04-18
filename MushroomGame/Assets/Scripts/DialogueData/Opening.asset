@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b61553294d8a044396108fba366cef5, type: 3}
+  m_Name: Opening
+  m_EditorClassIdentifier: 
+  dialogue:
+  - 'Huh what am I doing here? The last thing I remember going to class... '
+  - AAAAAAH!!! WHO'S THERE?
+  - 'Oh a cauldron... that can walk??  I really need to find my way back to school.
+    I have a 7 page paper on mycological medicinall applications due tomorrow. '
+  - 'Can you stop following me...
+
+    ...
+
+
+'
+  - "Fine I guess you're not harming anybody. Come\non, lets find your owner. \n\n\n"

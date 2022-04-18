@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b61553294d8a044396108fba366cef5, type: 3}
+  m_Name: Sign
+  m_EditorClassIdentifier: 
+  dialogue:
+  - 'The sign says:'
+  - 'Danger! Bear den close. '
+  - Lamella Village just past the gate. Please solve the puzzle, (agreed upon at
+    this weeks town meeting) to enter the village!
+  - 'A puzzle? Why can''t they just have a gatekeeper like a normal village.  '
+  - Well this doesn't seem too hard. Lets just get this over with. I'm not looking
+    to get mauled by a bear.
