@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Berry1
   m_EditorClassIdentifier: 
   dialogue:
-  - You got a luciderm berry! Used for potion making.
+  - Wow a Luciderm Berry! These are used for potion making...
+  - ....
+  - '...something I should be writing about right now. '

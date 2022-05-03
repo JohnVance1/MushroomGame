@@ -15,6 +15,8 @@ public class SceneManager : MonoBehaviour
     public List<GameObject> pickUpPrefabs;
     public GameObject banana;
     public Cauldron cauldron;
+    [SerializeField] public GameObject deathCanvas;
+    [SerializeField] public GameObject dialogueCanvas;
 
 
     private void Awake()
@@ -162,5 +164,11 @@ public class SceneManager : MonoBehaviour
 
 
         //return num1 > 0 && num2 > 0 || num1 < 0 && num2 < 0;
+    }
+
+    public void ToggleDeathCanvas()
+    {
+        deathCanvas.SetActive(!deathCanvas.activeSelf);
+        dialogueCanvas.SetActive(!dialogueCanvas.activeSelf);
     }
 }

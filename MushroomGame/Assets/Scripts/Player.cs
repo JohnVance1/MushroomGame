@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -18,13 +19,15 @@ public class Player : MonoBehaviour
     public List<Ingredients> overworldIngredients;
 
     public float BerryCount;
-    [SerializeField] private int healthInitial = 10;
+    [SerializeField] private int healthInitial = 20;
     private int healthCurrent;
     public float bulletCooldown = 2f;
     float bulletTimer;
 
     public int doorSpawnIndex;
     public bool inOverworld;
+
+    public HealthBar healthBar;
 
     private Animator animator;
 
@@ -51,6 +54,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        healthCurrent = healthInitial;
         BerryCount = 0;
         bulletCooldown = 2f;
         if (inOverworld)
@@ -188,21 +192,56 @@ public class Player : MonoBehaviour
     /// <param name="damageAmount"> The amount of damage for the Player to take </param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         //healthCurrent -= damageAmount;
         if (collision.tag == "Bullet" && bulletTimer <= 0)
         {
-            healthInitial -= 1;
-            print(healthInitial);
+            healthCurrent -= 1;
             bulletTimer = bulletCooldown;
+
+            healthBar.SetHealth(healthCurrent);
             GetComponent<SpriteRenderer>().color = Color.red;
+            
         }
     }
+
+    public void UpdateHealth()
+    {
+        if(healthCurrent > healthInitial)
+        {
+            healthCurrent = healthInitial;
+        }
+
+        else if (healthCurrent <= 0f)
+        {
+
+            healthCurrent = 0;
+            healthBar.slider.value = healthCurrent;
+            PlayerDied();
+            DontDestroyOnLoad(gameObject);
+
+        }
+
+        
+    }
+
+    public void PlayerDied()
+    {
+
+        SceneLoader.instance.GameOver();
+        gameObject.SetActive(false);
+
+    }
+
+    
+
 
     /// <summary>
     /// Heals the Player by the amount specified
     /// </summary>
     /// <param name="healamount">The amount to be healed</param>
     public void HealPlayer(int healamount)
+   
     {
         healthCurrent += healamount;
 

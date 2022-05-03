@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour
 
     public Dictionary<string, List<bool>> sceneGates;// = new Dictionary<string, List<bool>>();
 
+    
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -161,6 +162,15 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+    public void GameOver()
+    {
+        SceneManager _ui = GetComponent<SceneManager>();
+        if (_ui != null)
+
+        {
+            _ui.ToggleDeathCanvas();
+        }    
+    }
     public void Exit()
     {
         Application.Quit();

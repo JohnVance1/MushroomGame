@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b61553294d8a044396108fba366cef5, type: 3}
-  m_Name: New Dialogue Object
+  m_Name: Main_Cauldron Dialogue
   m_EditorClassIdentifier: 
   dialogue:
-  - I sense you have a berry on you! Its going to appear somewhere around the cauldron.
-  - Collect it and shoot it (by pressing the left mouse button) into the cauldron...
-  - ... while you avoid my attacks!
+  - 'I sense you have a berry or two on you! They''ll probably appear somewhere around
+    your cauldron friend. '
+  - 'Collect your berries and shoot them into the cauldron. (You can shoot your berries
+    by clicking the left mouse button). '
+  - That is... while you avoid my spore attacks!
