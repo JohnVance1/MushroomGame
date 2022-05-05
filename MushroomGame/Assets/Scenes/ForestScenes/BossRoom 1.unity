@@ -4759,11 +4759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 387993700718740538, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: 4.97
       objectReference: {fileID: 0}
     - target: {fileID: 387993700718740538, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.27
+      value: -8.58
       objectReference: {fileID: 0}
     - target: {fileID: 387993700718740538, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4811,7 +4811,7 @@ PrefabInstance:
       objectReference: {fileID: 994807844}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: levelToLoad
-      value: StartingRoom
+      value: FourthRoom
       objectReference: {fileID: 0}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: triggerName
