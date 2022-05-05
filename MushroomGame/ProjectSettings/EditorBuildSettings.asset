@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestScenes/ThirdRoom.unity
     guid: fd4ae71f96c8ab24686ad077d80ca33b
+  - enabled: 1
+    path: Assets/Scenes/ForestScenes/BossRoom 1.unity
+    guid: 9aaf6b8198f09a34c84b4221a9ac9c19
   m_configObjects: {}
