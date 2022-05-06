@@ -28,6 +28,7 @@ public class Overworld_Pickup : PickUpBase
         if(collision.tag == "Player")
         {
             Player.instance.OverworldPickup(type);
+            //Player.instance.PickedUp(this);
             Destroy(gameObject);
         }
     }

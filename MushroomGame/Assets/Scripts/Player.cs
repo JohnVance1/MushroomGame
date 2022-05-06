@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public GameObject projectile;
     public int currentRoom;
     public Sprite hatSprite;
+    private bool canDamage;
 
     public List<GameObject> playerIngredients;
 
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
     public IInteractable Interactable { get; set; }
     private void Awake()
     {
+        canDamage = true;
         playerIngredients = new List<GameObject>();
         //overworldIngredients = new List<Ingredients>();
         animator = GetComponent<Animator>();
@@ -183,7 +185,6 @@ public class Player : MonoBehaviour
     public void OverworldPickup(Ingredients type)
     {
         overworldIngredients.Add(type);
-
     }
 
     /// <summary>
@@ -196,12 +197,33 @@ public class Player : MonoBehaviour
         //healthCurrent -= damageAmount;
         if (collision.tag == "Bullet" && bulletTimer <= 0)
         {
-            healthCurrent -= 1;
             bulletTimer = bulletCooldown;
-
+            healthCurrent -= 1;
             healthBar.SetHealth(healthCurrent);
+            //StartCoroutine(HitStun());
+            StartCoroutine(FlashPlayer());
+
             GetComponent<SpriteRenderer>().color = Color.red;
             
+        }
+    }
+
+    public IEnumerator HitStun()
+    {
+        canDamage = false;
+        yield return new WaitForSeconds(1f);
+        canDamage = true;
+    }
+
+    public IEnumerator FlashPlayer()
+    {
+        while (bulletTimer > 0)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            GetComponent<SpriteRenderer>().enabled = true;
+            yield return new WaitForSeconds(0.1f);
+
         }
     }
 

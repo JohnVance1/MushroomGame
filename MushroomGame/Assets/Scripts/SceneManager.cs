@@ -15,6 +15,7 @@ public class SceneManager : MonoBehaviour
     public List<GameObject> pickUpPrefabs;
     public GameObject banana;
     public Cauldron cauldron;
+    public HealthBar healthBar;
     [SerializeField] public GameObject deathCanvas;
     [SerializeField] public GameObject dialogueCanvas;
 
@@ -32,6 +33,7 @@ public class SceneManager : MonoBehaviour
             instance = this;
         }
         player = Player.instance;
+        player.healthBar = healthBar;
 
         SpawnIngredient();
 
