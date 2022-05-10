@@ -6392,6 +6392,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5116909370296713846, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116909370296713846, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5132960852958669429, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6493,6 +6501,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67df853708dc5b5458fafe97384ed5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &360408941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5132960853262534789, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+  m_PrefabInstance: {fileID: 360408939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &360408942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7175374211586207756, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+  m_PrefabInstance: {fileID: 360408939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &360408943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5116909371313342501, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+  m_PrefabInstance: {fileID: 360408939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &360408944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5116909371313342503, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+  m_PrefabInstance: {fileID: 360408939}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360408943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20948c78aee4fe478d2c0269a24707f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &497474943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6578,6 +6612,7 @@ GameObject:
   - component: {fileID: 547035780}
   - component: {fileID: 547035783}
   - component: {fileID: 547035782}
+  - component: {fileID: 547035784}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -6718,6 +6753,19 @@ PolygonCollider2D:
       - {x: 0.265625, y: -0.4375}
       - {x: 0.29296875, y: -0.390625}
       - {x: 0.30859375, y: -0.36328125}
+--- !u!114 &547035784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547035779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5b730bc8f60c048a78753c5120705b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: d218205775983394abee3fb415d6b6bc, type: 2}
 --- !u!1 &573764196
 GameObject:
   m_ObjectHideFlags: 0
@@ -6759,10 +6807,10 @@ MonoBehaviour:
   - {fileID: 5419489411092912847, guid: a86b5af23fa72f444b85382ad3cf2ab3, type: 3}
   banana: {fileID: 3959820693247755812, guid: 18d45ac2eff8f4162961a28ab79516ef, type: 3}
   cauldron: {fileID: 547035782}
-  healthBar: {fileID: 0}
-  deathCanvas: {fileID: 0}
-  healthBarCanvas: {fileID: 0}
-  dialogueCanvas: {fileID: 0}
+  healthBar: {fileID: 360408944}
+  deathCanvas: {fileID: 360408942}
+  healthBarCanvas: {fileID: 360408943}
+  dialogueCanvas: {fileID: 360408941}
 --- !u!4 &573764198
 Transform:
   m_ObjectHideFlags: 0

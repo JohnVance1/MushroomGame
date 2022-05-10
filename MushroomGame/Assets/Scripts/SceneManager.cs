@@ -20,6 +20,7 @@ public class SceneManager : MonoBehaviour
     [SerializeField] public GameObject healthBarCanvas;
 
     [SerializeField] public GameObject dialogueCanvas;
+    
 
 
     private void Awake()
@@ -176,4 +177,6 @@ public class SceneManager : MonoBehaviour
         healthBarCanvas.SetActive(!healthBarCanvas.activeSelf);
         //dialogueCanvas.SetActive(!dialogueCanvas.activeSelf);
     }
+
+    
 }
