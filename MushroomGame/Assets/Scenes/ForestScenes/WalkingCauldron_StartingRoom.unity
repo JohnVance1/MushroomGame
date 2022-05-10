@@ -3656,7 +3656,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984450632}
-  - component: {fileID: 984450631}
   - component: {fileID: 984450630}
   - component: {fileID: 984450629}
   m_Layer: 0
@@ -3705,27 +3704,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &984450631
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984450628}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!4 &984450632
 Transform:
   m_ObjectHideFlags: 0
@@ -11880,7 +11858,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1879528065}
   - component: {fileID: 1879528064}
-  - component: {fileID: 1879528063}
   - component: {fileID: 1879528062}
   m_Layer: 0
   m_Name: Dialogue1
@@ -11902,27 +11879,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 5c75cd72d01074749aca6231fc7f65af, type: 2}
---- !u!50 &1879528063
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879528061}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &1879528064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13120,11 +13076,11 @@ PrefabInstance:
       objectReference: {fileID: 387993700595062784}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: levelToLoad
-      value: Main_Cauldron
+      value: BossRoom 1
       objectReference: {fileID: 0}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: triggerName
-      value: TutorialCauldron
+      value: 4ANDBOSS
       objectReference: {fileID: 0}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: newSceneIndex
