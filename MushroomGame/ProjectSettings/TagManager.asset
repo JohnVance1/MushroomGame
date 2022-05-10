@@ -8,6 +8,7 @@ TagManager:
   - Boulder
   - Bullet
   - Healthbar
+  - NPC
   layers:
   - Default
   - TransparentFX

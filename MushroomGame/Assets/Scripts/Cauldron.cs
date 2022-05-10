@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 public class Cauldron : MonoBehaviour
 {
     public string triggerName;
@@ -13,6 +14,9 @@ public class Cauldron : MonoBehaviour
     // This is set in the Unity Inspector
     public List<Ingredients> requiredIngredients;
 
+    public DialogueUI dialogueUI;
+
+
     [Tooltip("The random number for the \"Random Required Ingredients\" button")]
     public int randomIngredientNumber;
 
@@ -21,6 +25,7 @@ public class Cauldron : MonoBehaviour
         randomIngredientNumber = 0;
         triggerName = SceneLoader.instance.LastTrigger;
         requiredIngredients = Player.instance.overworldIngredients;
+        dialogueUI = Player.instance.DialogueUI;
     }
 
     void Update()
@@ -30,12 +35,26 @@ public class Cauldron : MonoBehaviour
             Debug.Log("Potion Complete!");
             Player.instance.overworldIngredients.Clear();
             SceneManager.instance.dialogueCanvas.SetActive(true);
-            GetComponent<DialogueActivator>().Interact(Player.instance);
             Player.instance.Interactable = GetComponent<DialogueActivator>();
-            SceneLoader.instance.ExitCauldron(triggerName);
+            GetComponent<DialogueActivator>().Interact(Player.instance);
+            if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main_Cauldron")
+            {
+                SceneLoader.instance.thirdRoomWin = true;
+            }
+            StartCoroutine(WaitForDialouge());
         }
 
     }
+
+    public IEnumerator WaitForDialouge()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneLoader.instance.ExitCauldron(triggerName);
+
+
+    }
+
+    public Func<bool> Return() => () => dialogueUI.IsOpen == false;
 
     /// <summary>
     /// Checks to see if the required amount of ingredients is reached
@@ -80,7 +99,7 @@ public class Cauldron : MonoBehaviour
         requiredIngredients.Clear();
         for (int i = 0; i < reqiredNum; i++)
         {
-            rand = Random.Range(0, 2);
+            rand = UnityEngine.Random.Range(0, 2);
             requiredIngredients.Add((Ingredients)rand);
         }
     }
