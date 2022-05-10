@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: d13bb7d91eb67274881bf3785805b198
-  - enabled: 1
-    path: Assets/Scenes/ForestScenes/StartingRoom.unity
-    guid: 5a9055f6475c7bd4cbd2b0c7fbe0f06f
+    path: Assets/Scenes/ForestScenes/WalkingCauldron_StartingRoom.unity
+    guid: 1293ea9b95de0a840a05a02b6ddfbc1d
   - enabled: 1
     path: Assets/Scenes/ForestScenes/SecondRoom.unity
     guid: 853c7f8439d6bfb47b58e066608cad06
