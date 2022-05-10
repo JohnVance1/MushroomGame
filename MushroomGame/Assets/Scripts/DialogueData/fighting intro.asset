@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: fighting intro
   m_EditorClassIdentifier: 
   dialogue:
-  - Hmmmm.......
+  - 'Stranger: Hmmmm.......'
   - Um, excuse me, I'm looking for Lamella Village. The sign over there said that
     it was up ahead but but I can't find it.
   - 'Hello? '
-  - 'Oh! Yes, you''ll be perfect. Do you know how to fight? '
+  - 'Stranger: Oh! Yes, you''ll be perfect. Do you know how to fight? '
   - 'Fight? No I''m looking for the closest village so I can use its Myceleporter,
     to get back to school.
 
 '
-  - 'Nonsense, you were sent here by the Gods to help us reclaim the village. The
-    people of Lamella have been driven away by a terrible beast.  '
+  - 'Stranger: Nonsense, you were sent here by the Gods to help us reclaim the village.
+    The people of Lamella have been driven away by a terrible beast.  '
   - I'm sorry to hear that but I need to get back-
-  - 'If you want to leave you''re going to have to fight me. '
+  - 'Stranger: If you want to leave you''re going to have to fight me. '
