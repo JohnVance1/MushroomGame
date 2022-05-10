@@ -11,6 +11,8 @@ public class SceneLoader : MonoBehaviour
 
     public Dictionary<string, List<bool>> sceneGates;// = new Dictionary<string, List<bool>>();
 
+    public bool thirdRoomWin;
+
     
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class SceneLoader : MonoBehaviour
         {
             instance = this;
         }
+        thirdRoomWin = false;
+
     }
 
     private string lastTrigger;
@@ -34,7 +38,6 @@ public class SceneLoader : MonoBehaviour
     void Start()
     {
         //UnityEngine.SceneManagement.SceneManager.sceneUnloaded += UnLoadScene;
-
 
         Invoke("AddFirstGate", 0.5f);
         DontDestroyOnLoad(gameObject);
@@ -103,6 +106,19 @@ public class SceneLoader : MonoBehaviour
     void OnLevelWasLoaded()
     {
         string levelName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        if(levelName == "ThirdRoom" && thirdRoomWin == true)
+        {
+            GameObject[] tutorialPersons = GameObject.FindGameObjectsWithTag("NPC");
+            foreach(GameObject person in tutorialPersons)
+            {
+                person.GetComponent<SpriteRenderer>().enabled = !person.GetComponent<SpriteRenderer>().enabled;
+                person.GetComponentInChildren<BoxCollider2D>().enabled = !person.GetComponentInChildren<BoxCollider2D>().enabled;
+
+            }
+
+        }
+
 
         DialogueUI dialouge = FindObjectOfType<DialogueUI>();
         if(dialouge != null)

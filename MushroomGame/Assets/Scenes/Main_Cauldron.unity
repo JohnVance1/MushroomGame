@@ -848,6 +848,7 @@ MonoBehaviour:
   triggerName: TutorialCauldron
   storedIngredients: 
   requiredIngredients: 00000000
+  dialogueUI: {fileID: 0}
   randomIngredientNumber: 0
 --- !u!60 &547035783
 PolygonCollider2D:
@@ -1400,6 +1401,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransferToRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 387993700718740539, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 387993701992674092, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: m_LocalPosition.y
       value: -5.377
@@ -1408,6 +1413,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1661456272}
+    - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
+      propertyPath: levelToLoad
+      value: ThirdRoom
+      objectReference: {fileID: 0}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: triggerName
       value: TutorialCauldron
