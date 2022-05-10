@@ -17,6 +17,8 @@ public class SceneManager : MonoBehaviour
     public Cauldron cauldron;
     public HealthBar healthBar;
     [SerializeField] public GameObject deathCanvas;
+    [SerializeField] public GameObject healthBarCanvas;
+
     [SerializeField] public GameObject dialogueCanvas;
 
 
@@ -171,6 +173,7 @@ public class SceneManager : MonoBehaviour
     public void ToggleDeathCanvas()
     {
         deathCanvas.SetActive(!deathCanvas.activeSelf);
-        dialogueCanvas.SetActive(!dialogueCanvas.activeSelf);
+        healthBarCanvas.SetActive(!healthBarCanvas.activeSelf);
+        //dialogueCanvas.SetActive(!dialogueCanvas.activeSelf);
     }
 }

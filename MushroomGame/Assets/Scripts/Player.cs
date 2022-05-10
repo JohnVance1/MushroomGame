@@ -105,7 +105,8 @@ public class Player : MonoBehaviour
                 animator.SetBool("Walk", false);
 
             }
-        } 
+        }
+        UpdateHealth();
     }
 
     void FixedUpdate()
