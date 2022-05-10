@@ -130,6 +130,9 @@ public class SceneLoader : MonoBehaviour
 
             }
 
+            GameObject boss = GameObject.FindGameObjectWithTag("Boss");
+            boss.GetComponent<Animator>().SetTrigger("Happy");
+
         }
 
 
