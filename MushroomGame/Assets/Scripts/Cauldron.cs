@@ -120,6 +120,7 @@ public class Cauldron : MonoBehaviour
         if (collision.tag == "Ingredient")
         {
             AddStoredIngredient(collision.gameObject.GetComponent<IngredientShootBase>());
+            SceneManager.instance.SpawnIngredient();
         }
     }
 }

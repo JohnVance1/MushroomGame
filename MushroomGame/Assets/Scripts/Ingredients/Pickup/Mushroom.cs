@@ -22,7 +22,7 @@ public class Mushroom : PickUpBase
         if (collision.tag == "Player")
         {
             Player.instance.PickedUp(this);
-            SceneManager.instance.SpawnIngredient();
+            //SceneManager.instance.SpawnIngredient();
             Destroy(gameObject);
         }
     }
