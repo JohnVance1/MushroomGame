@@ -29,6 +29,9 @@ public class Cauldron : MonoBehaviour
         {
             Debug.Log("Potion Complete!");
             Player.instance.overworldIngredients.Clear();
+            SceneManager.instance.dialogueCanvas.SetActive(true);
+            GetComponent<DialogueActivator>().Interact(Player.instance);
+            Player.instance.Interactable = GetComponent<DialogueActivator>();
             SceneLoader.instance.ExitCauldron(triggerName);
         }
 
