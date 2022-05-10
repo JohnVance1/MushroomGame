@@ -6,10 +6,12 @@ public class WalkingCauldron : MonoBehaviour
 {
     public Player player;
     public float speed;
+    private Animator animator;
 
     void Start()
     {
         player = Player.instance;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -17,6 +19,7 @@ public class WalkingCauldron : MonoBehaviour
         if(OutsideRadius(player.transform.position, 3f))
         {
             transform.position += Seek(player.transform.position) * Time.deltaTime * speed;
+            animator.SetTrigger("Move");
         }
 
 
