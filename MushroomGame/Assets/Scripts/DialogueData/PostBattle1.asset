@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b61553294d8a044396108fba366cef5, type: 3}
-  m_Name: boss cauldron
+  m_Name: PostBattle1
   m_EditorClassIdentifier: 
   dialogue:
-  - Not this again!!!
-  - 'I think I need to shoot 3 berries into the cauldron for this potion. '
+  - 'Stranger: Congratulations! You beat me. Now go ahead and save our town. '
+  - But what if I dont want to-
+  - 'Stranger: Too bad! The only way to get out of here is to go past that wreched
+    creature. '
