@@ -8526,7 +8526,7 @@ PrefabInstance:
       objectReference: {fileID: 840609599}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: levelToLoad
-      value: StartingRoom
+      value: WalkingCauldron_StartingRoom
       objectReference: {fileID: 0}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: triggerName
