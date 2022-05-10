@@ -18144,7 +18144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5b730bc8f60c048a78753c5120705b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueObject: {fileID: 0}
+  dialogueObject: {fileID: 11400000, guid: 93f64015806236a40bd252fff8b4fd73, type: 2}
 --- !u!1 &911908867
 GameObject:
   m_ObjectHideFlags: 0
@@ -19960,7 +19960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5b730bc8f60c048a78753c5120705b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueObject: {fileID: 0}
+  dialogueObject: {fileID: 11400000, guid: fc4a55282e97a794cafe6f8e6ac7c169, type: 2}
 --- !u!1 &1292880691
 GameObject:
   m_ObjectHideFlags: 0
