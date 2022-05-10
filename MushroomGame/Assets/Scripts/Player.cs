@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.white;
         }
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main_Cauldron" ||
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "BossCauldron")
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Boss_Cauldron")
         {
             GetComponent<SpriteRenderer>().sprite = hatSprite;
             animator.SetBool("InCombat", true);

@@ -948,6 +948,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 183619159297941767, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116909370296713846, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116909370296713846, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116909371313342500, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5132960852958669429, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1043,6 +1059,10 @@ PrefabInstance:
     - target: {fileID: 5132960852958669433, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175374211586207757, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
@@ -13077,11 +13097,11 @@ PrefabInstance:
       objectReference: {fileID: 387993700595062784}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: levelToLoad
-      value: ThirdRoom
+      value: BossRoom 1
       objectReference: {fileID: 0}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: triggerName
-      value: 2AND3
+      value: 4ANDBOSS
       objectReference: {fileID: 0}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: newSceneIndex

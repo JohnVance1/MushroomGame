@@ -6700,6 +6700,7 @@ MonoBehaviour:
   triggerName: TutorialCauldron
   storedIngredients: 
   requiredIngredients: 00000000
+  dialogueUI: {fileID: 0}
   randomIngredientNumber: 0
 --- !u!60 &547035783
 PolygonCollider2D:
@@ -7274,8 +7275,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1661456272}
     - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
+      propertyPath: levelToLoad
+      value: BossRoom 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552797327293435995, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
       propertyPath: triggerName
-      value: TutorialCauldron
+      value: BossFight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b79608d28a07d045b66430e56713e7a, type: 3}
@@ -7401,7 +7406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1980954201
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7461,7 +7466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980954200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3501656, y: 2.653216, z: -14.334497}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

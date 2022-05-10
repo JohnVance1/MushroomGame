@@ -12,8 +12,9 @@ public class SceneLoader : MonoBehaviour
     public Dictionary<string, List<bool>> sceneGates;// = new Dictionary<string, List<bool>>();
 
     public bool thirdRoomWin;
+    public bool bossRoomWin;
 
-    
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -26,6 +27,7 @@ public class SceneLoader : MonoBehaviour
             instance = this;
         }
         thirdRoomWin = false;
+        bossRoomWin = false;
 
     }
 
@@ -114,6 +116,17 @@ public class SceneLoader : MonoBehaviour
             {
                 person.GetComponent<SpriteRenderer>().enabled = !person.GetComponent<SpriteRenderer>().enabled;
                 person.GetComponentInChildren<BoxCollider2D>().enabled = !person.GetComponentInChildren<BoxCollider2D>().enabled;
+
+            }
+
+        }
+
+        if (levelName == "BossRoom 1" && bossRoomWin == true)
+        {
+            GameObject[] tutorialPersons = GameObject.FindGameObjectsWithTag("DialogueDelete");
+            foreach (GameObject person in tutorialPersons)
+            {
+                person.SetActive(false);
 
             }
 

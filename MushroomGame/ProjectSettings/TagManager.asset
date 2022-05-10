@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Healthbar
   - NPC
+  - DialogueDelete
   layers:
   - Default
   - TransparentFX
