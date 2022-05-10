@@ -164,7 +164,7 @@ public class SceneLoader : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager _ui = GetComponent<SceneManager>();
+        SceneManager _ui = SceneManager.instance;
         if (_ui != null)
 
         {
