@@ -130,6 +130,10 @@ public class SceneLoader : MonoBehaviour
 
             }
 
+            GameObject transfer = GameObject.FindGameObjectWithTag("Transfer");
+            transfer.GetComponent<BoxCollider2D>().enabled = false;
+
+
             GameObject boss = GameObject.FindGameObjectWithTag("Boss");
             boss.GetComponent<Animator>().SetTrigger("Happy");
 

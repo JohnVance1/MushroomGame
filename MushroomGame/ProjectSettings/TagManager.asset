@@ -11,6 +11,7 @@ TagManager:
   - NPC
   - DialogueDelete
   - Boss
+  - Transfer
   layers:
   - Default
   - TransparentFX

@@ -1867,6 +1867,7 @@ Transform:
   - {fileID: 1105080537}
   - {fileID: 418393576}
   - {fileID: 1198097088}
+  - {fileID: 1343164262}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1986,7 +1987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -38.095238}
   m_SizeDelta: {x: 800, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299170051
@@ -2624,7 +2625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -86.99998, y: 130}
+  m_AnchoredPosition: {x: -86.99998, y: 91.90476}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419313829
@@ -4231,7 +4232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64, y: 130}
+  m_AnchoredPosition: {x: 64, y: 91.90476}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &779947711
@@ -5994,10 +5995,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105080536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.55, y: 3.84, z: 0}
+  m_LocalPosition: {x: -4.55, y: 4.3642483, z: 0}
   m_LocalScale: {x: 17.570312, y: 0.3052775, z: 1}
-  m_Children:
-  - {fileID: 2011939468}
+  m_Children: []
   m_Father: {fileID: 272331817}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6053,9 +6053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1321566657}
-  triggerName: Wake
-  exitTrigger: BossFight
-  levelToLoad: Boss_Cauldron
+  name: Wake
 --- !u!1 &1110574140
 GameObject:
   m_ObjectHideFlags: 0
@@ -6459,7 +6457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9959a64bd970417439cf87dcdb2f9a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarCanvas: {fileID: 0}
+  healthBarCanvas: {fileID: 2055301625}
   dialogueCanvas: {fileID: 2055301624}
   thankYou: {fileID: 877598654}
 --- !u!1 &1205317957
@@ -7397,6 +7395,80 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1343164261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1343164262}
+  - component: {fileID: 1343164264}
+  - component: {fileID: 1343164263}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Transfer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1343164262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343164261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.55, y: 5.3642483, z: 0}
+  m_LocalScale: {x: 17.570312, y: 0.3052775, z: 1}
+  m_Children:
+  - {fileID: 2011939468}
+  m_Father: {fileID: 272331817}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1343164263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343164261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5a8721d9923c74f85ba3402d141941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerName: BossFight
+  levelToLoad: Boss_Cauldron
+  spawnPoint: {fileID: 2011939468}
+--- !u!61 &1343164264
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343164261}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1345249507
 GameObject:
   m_ObjectHideFlags: 0
@@ -8568,7 +8640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 219, y: 28}
+  m_AnchoredPosition: {x: 219, y: -10.095238}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542686975
@@ -16264,7 +16336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75, y: 230}
+  m_AnchoredPosition: {x: 75, y: 191.90475}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851316341
@@ -17125,11 +17197,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011939467}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 2.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.029999988, y: 4.9135604, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1105080537}
+  m_Father: {fileID: 1343164262}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2039502505
@@ -17399,6 +17471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5132960852958669433, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7175374211586207757, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -17425,6 +17501,11 @@ RectTransform:
 --- !u!1 &2055301624 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5132960853262534789, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+  m_PrefabInstance: {fileID: 2055301622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2055301625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6052305706635795014, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
   m_PrefabInstance: {fileID: 2055301622}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2106177154

@@ -41,6 +41,10 @@ public class Cauldron : MonoBehaviour
             {
                 SceneLoader.instance.thirdRoomWin = true;
             }
+            else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Boss_Cauldron")
+            {
+                SceneLoader.instance.bossRoomWin = true;
+            }
             StartCoroutine(WaitForDialouge());
         }
 
