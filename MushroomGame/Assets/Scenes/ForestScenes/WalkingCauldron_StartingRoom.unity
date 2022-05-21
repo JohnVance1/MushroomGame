@@ -872,6 +872,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 259340528640157756, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2931501498370600115, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5116909370296713846, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -984,9 +992,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7175374211586207756, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7175374211586207757, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7987504669053419806, guid: 9f9353eabb7a0494884eab39b2b8cd08, type: 3}
       propertyPath: m_AnchorMax.x
@@ -12993,7 +13005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5061556556036742207, guid: 5bdb852755ea970438f4002c32c5912f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5061556556036742207, guid: 5bdb852755ea970438f4002c32c5912f, type: 3}
       propertyPath: m_LocalScale.x
